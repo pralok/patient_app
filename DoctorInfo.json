@@ -1,0 +1,30 @@
+{
+  "profile":
+    {
+      "success" : true,
+      "DoctorID": 1,
+      "fname": "Pralok",
+      "lname": "Chhajed",
+      "degrees": "MBBS, MD",
+      "specialities": "diabetician",
+      "experience" : 13,
+      "email" : "abc@xyz.com",
+      "address": "421, abc building, xyz road, A City, B state, pin 321453",
+      "clinic_contact": 1233456494,
+      "mobile_contact" : 1234567890
+    }
+}
+
+/*
+ DoctorId string
+ First Name string
+ Last Name string
+ Degrees string
+ Speciality string
+ Email ID string
+ Experience Number
+ Clinic Address string
+ Office Contact number Integer
+ Mobile Number Integer
+
+ */
