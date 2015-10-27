@@ -24,11 +24,12 @@ Ext.define('WireFrameTwo.controller.Login',{
         var password = LoginValues.password;
 
         Ext.Ajax.request({
-            url: 'UserLogin.json',
+            url: 'http://squer.mirealux.com/wdm-pm-api/login',//abc-abc
             method: 'post',
             params: {
-                user: username,
-                pwd: password
+                username: username,
+                password: password,
+                timestamp : new Date().getTime()
             },
             success: function (response) {
                 var result = Ext.JSON.decode(response.responseText);
@@ -36,20 +37,27 @@ Ext.define('WireFrameTwo.controller.Login',{
                 if (result.success === true) {
                     //reset fields
                     me.getLoginPage().reset();
+
+                    //hide error msg if visible
+                    if(! me.getErrorMsg().isHidden()){
+                        me.getErrorMsg().hide();
+                    };
                     // add a session local storage by passing ref id
-                    var refID = result.refID;
+                    var refID = result.reference_id;
                     console.log(refID);
                     me.createUserSession(refID);
 
                     // change view
                     me.ChangeView();
                 } else {
-                    // show failure msg
-                    console.log("login failed");
+                  console.log(result);
+                  // show failure msg
+                  me.getErrorMsg().show();
+                  console.log("login failed");
                 }
             },
             failure: function () {
-                // show connection error
+                // show connection error loginError
                 console.log("connection error");
             }
         })

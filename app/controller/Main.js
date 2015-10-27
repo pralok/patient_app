@@ -2,9 +2,10 @@ Ext.define('WireFrameTwo.controller.Main',{
     extend : 'Ext.app.Controller',
     config : {
         views : ['WireFrameTwo.view.MenuBar','WireFrameTwo.view.myDoctor.DoctorProfile',
-        'WireFrameTwo.view.myProfile.MyProfile','WireFrameTwo.view.reports.ReportsHome'],
+        'WireFrameTwo.view.myProfile.MyProfile','WireFrameTwo.view.Alarms.AlarmsHome',
+        'WireFrameTwo.view.reports.ReportsHome'],
 
-        stores : ['SessionStore',
+        stores : ['SessionStore','AlarmsStore',
             'HBAstore','FBGstore','DBPstore','PPGstore','RBSstore','SBPstore'],
 
         refs : {
@@ -15,6 +16,7 @@ Ext.define('WireFrameTwo.controller.Main',{
             doctorProfile : 'doctorProfile',
             myProfile : 'myProfile',
             reportView : 'myReports',
+            alarmView : 'alarmHome',
 
             //buttons
             homePageButton : 'menu button[action="homeview"]',
@@ -22,8 +24,8 @@ Ext.define('WireFrameTwo.controller.Main',{
             MenuButton : 'toolbarmenu button[action="MenuButton"]',
             MyDoctorButton : 'menu button[action="viewMyDoctor"]',
             MyProfileButton : 'menu button[action="profile"]',
-            MyReportButton : 'menu button[action="viewReports"]'
-
+            MyReportButton : 'menu button[action="viewReports"]',
+            ReminderButton : 'menu button[action="reminders"]'
         },
 
         control : {
@@ -45,6 +47,9 @@ Ext.define('WireFrameTwo.controller.Main',{
             },
             logout :{
                 tap : 'onLogOut'
+            },
+            ReminderButton : {
+                tap : 'onReminderTap'
             }
 
         }
@@ -59,16 +64,44 @@ Ext.define('WireFrameTwo.controller.Main',{
     },
 
     onLogOut : function(){
-        var myStore = Ext.getStore('SessionStore');
-        myStore.removeAll();
-        myStore.sync();
 
-        var loginPage = this.getLoginpage();
-        if(loginPage === undefined){
-            Ext.create('WireFrameTwo.view.login.LoginPage');
-            loginPage = this.getLoginpage();
+      //get session store
+      var SessionStore = Ext.getStore('SessionStore');
+      // get ref id
+      var myRefId = SessionStore.getAt(0).getData().refID;
+
+
+      Ext.Ajax.request({
+        url: 'http://squer.mirealux.com/wdm-pm-api/logout',//abc-abc
+        method: 'post',
+        params: {
+          reference_id : myRefId,
+          timestamp : new Date().getTime()
+        },
+        success: function (response) {
+          var result = Ext.JSON.decode(response.responseText);
+          if (result.success === true) {
+            console.log("logged out");
+          } else {
+            console.log(result.message);
+          }
+        },
+        failure: function () {
+          // show connection error loginError
+          console.log("connection error");
         }
-        this.changeView(loginPage);
+      });
+
+      var myStore = Ext.getStore('SessionStore');
+      myStore.removeAll();
+      myStore.sync();
+
+      var loginPage = this.getLoginpage();
+      if(loginPage === undefined){
+        Ext.create('WireFrameTwo.view.login.LoginPage');
+        loginPage = this.getLoginpage();
+      }
+      this.changeView(loginPage);
     },
 
     onHomePageTap : function(){
@@ -143,29 +176,35 @@ Ext.define('WireFrameTwo.controller.Main',{
         // get ref id
         var myRefId = SessionStore.getAt(0).getData().refID;
 
+        console.log(myRefId);
         //make an ajax request with ref id
+        Ext.Ajax.disableCaching = false;
         Ext.Ajax.request({
-            url: 'MyProfileInfo.json',
+            url: 'http://squer.mirealux.com/wdm-pm-api/user-info',//'UserProfileUpdate.json',
             method: 'post',
             params: {
-                refId: myRefId
+                reference_id : myRefId,
+                timestamp : new Date().getTime()
             },
 
             success: function (response) {
-                var result = Ext.JSON.decode(response.responseText).profile;
+                var result = Ext.JSON.decode(response.responseText);//.profile;
+                console.log(result);
 
                 if (result.success === true) {
-                    //get values from return object
-                    var myHtmlString = result.fname + ' ' + result.lname + '(' +
-                        result.gender + ')' + '<br/>' + result.age + ' years' + '<br/>' +
-                        result.diabetes_type;
+                  result = result.data;
+                  console.log(result);
+                  var diab_type = result.diabetes_type || "";
+                  var allergy = result.allergy || "";
+                  var med_history = result.medical_history || "";
+                  var address = result.address || "";
+                  var mobile_no = result.contact_no || "";
+                  var emer_cont = result.contact_emergency || "";
 
-                    var diab_type = result.diabetes_type;
-                    var allergy = result.allergy;
-                    var med_history = result.medical_history;
-                    var address = result.Address;
-                    var mobile_no = result.mobile_contact;
-                    var emer_cont = result.emergency_contact;
+                    //get values from return object
+                    var myHtmlString = result.fname + ' ' + result.lname + ' (' +
+                        result.gender + ')' + '<br/>' + result.age.year + ' years' + '<br/>';
+                        //+ diab_type;
 
                     //create view
                     Ext.create('WireFrameTwo.view.myProfile.MyProfile');
@@ -182,10 +221,9 @@ Ext.define('WireFrameTwo.controller.Main',{
 
                     //change view
                     me.changeView(ProfileView);
-
                 }else{
                     // show failure msg
-                    console.log("login failed");
+                    console.log("loading profile failed");
                 }
 
             },failure: function () {
@@ -197,10 +235,14 @@ Ext.define('WireFrameTwo.controller.Main',{
 
     onMyReportTap : function(){
         Ext.create('WireFrameTwo.view.reports.ReportsHome');
-
         var ReportView = this.getReportView();
-
         this.changeView(ReportView);
+    },
+
+    onReminderTap : function(){
+        Ext.create('WireFrameTwo.view.Alarms.AlarmsHome');
+        var AlarmView = this.getAlarmView();
+        this.changeView(AlarmView);
     },
 
     changeView : function(NewView){

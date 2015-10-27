@@ -5,6 +5,7 @@ Ext.define('WireFrameTwo.view.login.LoginPage',{
     config : {
         fullscreen : true,
         scrollable : true,
+        id : 'loginlayout',
         items : [
             {
                 xtype : 'fieldset',
@@ -26,11 +27,6 @@ Ext.define('WireFrameTwo.view.login.LoginPage',{
                 action : 'Login'
             },
             {
-                xtype : 'button',
-                text : 'forgot my password !',
-                styleHtml : true,
-                style : 'font-size : 0.6em; text-decoration : underline;color : blue; border : 0px; width : 50%; margin-left : 25%; margin-right : 25%; margin-top : 20px; '
-            },{
                 xtype : 'panel',
                 itemId : 'loginError',
                 html : 'Incorrect username and password',

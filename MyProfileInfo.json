@@ -1,16 +1,19 @@
 {
-  "profile" : {
-    "success" : true,
-    "fname" : "pralok",
-    "lname" : "chhajed",
-    "age" : "4",
-    "dob" : "2011-01-11",
-    "gender" : "Male",
-    "diabetes_type" : "type 2",
-    "allergy" : "hazelnuts",
-    "medical_history" : "some",
-    "Address" : "123 cms, main road, krh, ind",
-    "mobile_contact" : "112321122",
-    "emergency_contact" : "3454321231"
-  }
+    "success": "true",
+    "data": {
+        "id": 456,
+        "fname": "John",
+        "lname": "Doe",
+        "email": "patient@example.com",
+        "dob": "20/01/1980",
+        "age": 35,
+        "gender": "male",
+        "diabetes_type": "Type1",
+        "Allergy": "water, air",
+        "medical_history": "lorem ipsum,lorem ipsum",
+        "address": "lorem ipsum, loremipsum",
+        "contact": "8888888888",
+        "contact_emergency": "9999999999"
+    },
+    "message": ""
 }

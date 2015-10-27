@@ -1,7 +1,7 @@
 Ext.application({
     name: 'WireFrameTwo',
 
-    controllers : ['RefId','Login','Main','News','Profile','Report'],
+    controllers : ['RefId','Login','Main','News','Profile','Report','Alarms'],
 
     launch: function() {
         // Destroy the #appLoadingIndicator element
@@ -14,7 +14,6 @@ Ext.application({
             reveal: true
         });
 
-        //load menu
         var SessionStore = Ext.getStore('SessionStore');
         console.log(SessionStore.getAt(0));
         if(SessionStore.getAt(0)){

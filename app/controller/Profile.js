@@ -54,28 +54,31 @@ Ext.define('WireFrameTwo.controller.Profile',{
 
         //make an ajax request with ref id
         Ext.Ajax.request({
-            url: 'MyProfileInfo.json',
+            url: 'http://squer.mirealux.com/wdm-pm-api/user-info',
             method: 'post',
             params: {
-                refId: myRefId
+              reference_id : myRefId,
+              timestamp : new Date().getTime()
             },
 
             success: function (response) {
-                var result = Ext.JSON.decode(response.responseText).profile;
+                var result = Ext.JSON.decode(response.responseText);
 
                 if (result.success === true) {
+                  result = result.data;
+                  console.log(result);
 
                     //get values
                     var fname = result.fname;
                     var lname = result.lname;
                     var gender = result.gender;
-                    var dob = result.dob;
-                    var diab_type = result.diabetes_type;
-                    var allergy = result.allergy;
-                    var med_history = result.medical_history;
-                    var address = result.Address;
-                    var mobile_no = result.mobile_contact;
-                    var emer_cont = result.emergency_contact;
+                    var dob = result.age.year;
+                    var diab_type = result.diabetes_type || "";
+                    var allergy = result.allergy || "";
+                    var med_history = result.medical_history || "";
+                    var address = result.address || "";
+                    var mobile_no = result.contact_no || "";
+                    var emer_cont = result.contact_emergency || "";
 
                     //create view
                     Ext.create('WireFrameTwo.view.myProfile.MyProfileEdit');
@@ -95,17 +98,11 @@ Ext.define('WireFrameTwo.controller.Profile',{
 
                     //change view
                     me.changeView(EditView,'up');
-
-
-
                 }
             }
         })
-
         //create edit view
         Ext.create('WireFrameTwo.view.myProfile.MyProfileEdit');
-
-
     },
 
     onSaveProfile : function(){
@@ -119,35 +116,41 @@ Ext.define('WireFrameTwo.controller.Profile',{
 
         //get form handle
         var EditView = this.getEditProfile().getValues();
-
+        var UpdateData = {
+          fname : EditView.fName,
+          lname : EditView.lname,
+          gender : EditView.gender,
+          dob : EditView.dob,
+          diabetes_type : EditView.diab_type,
+          Allergy : EditView.allergy,
+          medical_history : EditView.history,
+          contact : EditView.contact,
+          address : EditView.address,
+          contact_emergency : EditView.emg_contact
+        };
         //submit request
         Ext.Ajax.request({
-            url: 'UserProfileUpdate.json',
+            url: 'http://squer.mirealux.com/wdm-pm-api/update-profile',//'UserProfileUpdate.json'
             method: 'post',
             params: {
-                refId : myRefId,
-                fname : EditView.fName,
-                lname : EditView.lname,
-                gender : EditView.gender,
-                dob : EditView.dob,
-                diab_type : EditView.diab_type,
-                allergy : EditView.allergy,
-                history : EditView.history,
-                contact : EditView.contact,
-                address : EditView.address,
-                emg_contact : EditView.emg_contact
+                reference_id : myRefId,
+                timestamp : new Date().getTime(),
+                data : UpdateData
             },
             success: function (response) {
                 var result = Ext.JSON.decode(response.responseText);
 
                 if (result.success === true) {
-                    //create and load profile view
+                    //get user profile info
+                    result = UpdateData;
+                    result.age = result.dob;
+
                     var myHtmlString = result.fname + ' ' + result.lname + '(' +
                         result.gender + ')' + '<br/>' + result.age + ' years' + '<br/>' +
                         result.diabetes_type;
 
                     var diab_type = result.diabetes_type;
-                    var allergy = result.allergy;
+                    var allergy = result.Allergy;
                     var med_history = result.medical_history;
                     var address = result.Address;
                     var mobile_no = result.mobile_contact;
@@ -155,6 +158,7 @@ Ext.define('WireFrameTwo.controller.Profile',{
 
                     //create view
                     Ext.create('WireFrameTwo.view.myProfile.MyProfile');
+
 
                     //set values
                     var ProfileView = me.getProfileView();
