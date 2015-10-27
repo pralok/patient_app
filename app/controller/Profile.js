@@ -15,7 +15,6 @@ Ext.define('WireFrameTwo.controller.Profile',{
             'fileBtn': 'profileEdit #fileBtn',
             'fileLoadBtn': 'profileEdit #fileLoadBtn',
             'loadedImage': 'profileEdit #loadedImage'
-
         },
         control : {
             editButton : {
@@ -37,8 +36,6 @@ Ext.define('WireFrameTwo.controller.Profile',{
                 loadsuccess: 'onFileLoadSuccess',
                 loadfailure: 'onFileLoadFailure'
             }
-
-
         }
     },
 
@@ -114,6 +111,17 @@ Ext.define('WireFrameTwo.controller.Profile',{
         // get ref id
         var myRefId = SessionStore.getAt(0).getData().refID;
 
+        var EditView = this.getEditProfile().getValues();
+
+        var today = new Date();
+        var birthDate = new Date(EditView.dob);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+
+
         //get form handle
         var EditView = this.getEditProfile().getValues();
         var UpdateData = {
@@ -143,22 +151,20 @@ Ext.define('WireFrameTwo.controller.Profile',{
                 if (result.success === true) {
                     //get user profile info
                     result = UpdateData;
-                    result.age = result.dob;
 
                     var myHtmlString = result.fname + ' ' + result.lname + '(' +
-                        result.gender + ')' + '<br/>' + result.age + ' years' + '<br/>' +
-                        result.diabetes_type;
+                        result.gender + ')' + '<br/>' + age + ' years' ;
+                        //+ '<br/>' + result.diabetes_type;
 
                     var diab_type = result.diabetes_type;
                     var allergy = result.Allergy;
                     var med_history = result.medical_history;
-                    var address = result.Address;
-                    var mobile_no = result.mobile_contact;
-                    var emer_cont = result.emergency_contact;
+                    var address = result.address;
+                    var mobile_no = result.contact;
+                    var emer_cont = result.contact_emergency;
 
                     //create view
                     Ext.create('WireFrameTwo.view.myProfile.MyProfile');
-
 
                     //set values
                     var ProfileView = me.getProfileView();
