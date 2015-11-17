@@ -13,13 +13,12 @@ Ext.application({
             side: 'left',
             reveal: true
         });
-
         var SessionStore = Ext.getStore('SessionStore');
         console.log(SessionStore.getAt(0));
         if(SessionStore.getAt(0)){
-            Ext.Viewport.setActiveItem(Ext.create('WireFrameTwo.view.news.newslist'));
+          Ext.Viewport.setActiveItem(Ext.create('WireFrameTwo.view.news.FeedsPage'));
         }else{
-            Ext.Viewport.add(Ext.create('WireFrameTwo.view.login.LoginPage'));
+          Ext.Viewport.add(Ext.create('WireFrameTwo.view.login.LoginPage'));
         }
     }
 });

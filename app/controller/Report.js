@@ -47,14 +47,33 @@ Ext.define('WireFrameTwo.controller.Report',{
         //submit a request to server with refId
         var RefId = this.getApplication().getController('RefId').passRefId();
 
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if(dd<10) {
+            dd='0'+dd
+        }
+
+        if(mm<10) {
+            mm='0'+mm
+        }
+
+        today = dd+'/'+ mm +'/'+yyyy;
+
         //make an ajax request with ref id
         Ext.Ajax.request({
-            url: 'AddReport.json',
+            url: 'http://squer.mirealux.com/wdm-pm-api/get-report',
             method: 'post',
             params: {
-                refId : RefId,
-                Report_type : Report_type,
-                Report_Value : Report_Value
+                reference_id : RefId,
+                timestamp : new Date().getTime(),
+                data : {
+                  type : Report_type,
+                  value : Report_Value,
+                  date : today
+                }
             },
 
             success: function (response) {

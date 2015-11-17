@@ -3,7 +3,7 @@ Ext.define('WireFrameTwo.controller.Main',{
     config : {
         views : ['WireFrameTwo.view.MenuBar','WireFrameTwo.view.myDoctor.DoctorProfile',
         'WireFrameTwo.view.myProfile.MyProfile','WireFrameTwo.view.Alarms.AlarmsHome',
-        'WireFrameTwo.view.reports.ReportsHome'],
+        'WireFrameTwo.view.reports.ReportsHome','WireFrameTwo.view.news.FeedsPage'],
 
         stores : ['SessionStore','AlarmsStore',
             'HBAstore','FBGstore','DBPstore','PPGstore','RBSstore','SBPstore'],
@@ -12,29 +12,26 @@ Ext.define('WireFrameTwo.controller.Main',{
             //views
             MenuBar : 'menu',
             loginpage : 'loginPage',
-            homePageView : 'newslist',
             doctorProfile : 'doctorProfile',
             myProfile : 'myProfile',
             reportView : 'myReports',
             alarmView : 'alarmHome',
+            feedsView : 'feedsHome',
 
             //buttons
-            homePageButton : 'menu button[action="homeview"]',
             logout : 'menu button[action=logout]',
             MenuButton : 'toolbarmenu button[action="MenuButton"]',
             MyDoctorButton : 'menu button[action="viewMyDoctor"]',
             MyProfileButton : 'menu button[action="profile"]',
             MyReportButton : 'menu button[action="viewReports"]',
-            ReminderButton : 'menu button[action="reminders"]'
+            ReminderButton : 'menu button[action="reminders"]',
+            FeedsButton : 'menu button[action="feeds"]'
+
         },
 
         control : {
             MenuButton : {
                 tap : 'onMenuTap'
-            },
-
-            homePageButton : {
-                tap : 'onHomePageTap'
             },
             MyDoctorButton : {
                 tap : 'OnViewMyDoctor'
@@ -50,6 +47,9 @@ Ext.define('WireFrameTwo.controller.Main',{
             },
             ReminderButton : {
                 tap : 'onReminderTap'
+            },
+            FeedsButton : {
+              tap : 'onFeedTap'
             }
 
         }
@@ -102,11 +102,6 @@ Ext.define('WireFrameTwo.controller.Main',{
         loginPage = this.getLoginpage();
       }
       this.changeView(loginPage);
-    },
-
-    onHomePageTap : function(){
-        var Home = this.getHomePageView();
-        this.changeView(Home);
     },
 
     OnViewMyDoctor : function(){
@@ -243,6 +238,12 @@ Ext.define('WireFrameTwo.controller.Main',{
         Ext.create('WireFrameTwo.view.Alarms.AlarmsHome');
         var AlarmView = this.getAlarmView();
         this.changeView(AlarmView);
+    },
+
+    onFeedTap : function(){
+      Ext.create('WireFrameTwo.view.news.FeedsPage');
+      var FeedsView = this.getFeedsView();
+      this.changeView(FeedsView);
     },
 
     changeView : function(NewView){

@@ -1,49 +1,76 @@
 Ext.define('WireFrameTwo.controller.News',{
     extend : 'Ext.app.Controller',
     config : {
-        views : ['WireFrameTwo.view.news.newslist','WireFrameTwo.view.news.newsdetails'],
+        views : ['WireFrameTwo.view.news.FeedsPage',
+        'WireFrameTwo.view.news.mediaGallery','WireFrameTwo.view.news.Faqs',
+      'WireFrameTwo.view.news.DietPlanner'],
         refs : {
             //views
-            detailView : 'detailnews',
-            listView : 'newslist',
-
+            mediaGallery : 'mediaGallery',
+            feedsHome : 'feedsHome',
+            faqs : 'faqs',
+            dietPlanner : 'dietPlanner',
             //content
-            detailContent : 'detailnews panel',
+
             //buttons
-            newslist : 'newslist list',
-            backToList : 'detailnews toolbar button[ui="back"]'
+            backToFeeds : 'toolbarmenu button[action="toFeeds"]',
+
+            //feeds list page
+            feedTopic1 : 'feedsHome panel',
+            feedTopic23 : 'feedsHome panel panel'
         },
 
         control : {
-            newslist : {
-                itemtap : 'onNewsListTap'
+          backToFeeds : {
+            tap : 'onBackButtonTap'
+          },
+            feedTopic1 : {
+              onGalleryClick : 'onGalleryTap'
             },
-            backToList : {
-                tap : 'backToList'
+            feedTopic23 : {
+              onFaqClick : 'onFaqTap',
+              onPlannerClick : 'onPlannerTap'
             }
+
         }
     },
+    onBackButtonTap : function(){
+      console.log("go back to Main");
+      var FeedsHome = this.getFeedsHome();
+      Ext.Viewport.animateActiveItem(FeedsHome,{
+          type : 'slide',
+          direction : 'right'
+      });
+    },
+    onPlannerTap : function(){
+      console.log("planner tapped");
+      Ext.Viewport.add(Ext.create('WireFrameTwo.view.news.DietPlanner'));
+      var dietPlannerView = this.getDietPlanner();
 
-    DetailsViewGenerate : function(){
-        Ext.Viewport.add(Ext.create('WireFrameTwo.view.news.newsdetails'));
+      Ext.Viewport.animateActiveItem(dietPlannerView,{
+        type : 'slide',
+        direction : 'left'
+      });
     },
 
-    onNewsListTap : function(btn,index,target,record){
-        this.DetailsViewGenerate();
-        var content = record.get('content');
-        var DetailsPage = this.getDetailView();
-        var DetailsContent = this.getDetailContent();//DetailView();
-        DetailsContent.setHtml('<div class="detail-image"><img src="resources/startup/320x460.jpg"></div>' + content );
-        Ext.Viewport.animateActiveItem(DetailsPage,{
-            type : 'slide',
-            direction : 'left'
-        });
+    onFaqTap : function(e){
+      console.log("FAQ tapped");
+      Ext.Viewport.add(Ext.create('WireFrameTwo.view.news.Faqs'));
+      var faqView = this.getFaqs();
+
+      Ext.Viewport.animateActiveItem(faqView,{
+        type : 'slide',
+        direction : 'left'
+      });
     },
-    backToList : function(){
-        var NewsList = this.getListView();
-        Ext.Viewport.animateActiveItem(NewsList,{
-            type : 'slide',
-            direction : 'right'
-        });
+
+    onGalleryTap : function(){
+      console.log("gallery tapped");
+      Ext.Viewport.add(Ext.create('WireFrameTwo.view.news.mediaGallery'));
+      var MediaGallery = this.getMediaGallery();
+      Ext.Viewport.animateActiveItem(MediaGallery,{
+          type : 'slide',
+          direction : 'left'
+      });
     }
 })

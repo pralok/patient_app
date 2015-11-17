@@ -4,27 +4,23 @@ Ext.define('WireFrameTwo.view.MenuBar',{
     xtype : 'menu',
     config : {
         items: [
-            {
-                xtype : 'button',
-                action : 'viewMyDoctor',
-                text: 'My Doctor',
-                iconCls: 'user'
-            },{
+          {
+              xtype : 'button',
+              action : 'profile',
+              text: 'My Profile',
+              iconCls: 'user'
+          },
+          {
+              xtype : 'button',
+              action : 'feeds',
+              text: 'Feeds',
+              iconCls: 'star'
+          },
+          {
                 xtype : 'button',
                 action : 'viewReports',
                 text: 'My Reports',
                 iconCls: 'compose'
-            },{
-                xtype : 'button',
-                action : 'profile',
-                text: 'My Profile',
-                iconCls: 'user'
-            },
-            {
-                xtype : 'button',
-                action : 'homeview',
-                text: 'News',
-                iconCls: 'star'
             },
             {
                 xtype : 'button',
@@ -43,3 +39,12 @@ Ext.define('WireFrameTwo.view.MenuBar',{
 
     }
 })
+
+/*
+{
+    xtype : 'button',
+    action : 'viewMyDoctor',
+    text: 'My Doctor',
+    iconCls: 'user'
+},
+*/
