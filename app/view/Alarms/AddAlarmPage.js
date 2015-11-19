@@ -19,7 +19,7 @@ Ext.define('WireFrameTwo.view.Alarms.AddAlarmPage',{
 					xtype : 'button',
 					text : 'save',
 					ui : 'confirm',
-					action : 'save' 
+					action : 'save'
 				}]
 			},
             {

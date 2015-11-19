@@ -3,7 +3,8 @@ Ext.define('WireFrameTwo.controller.Main',{
     config : {
         views : ['WireFrameTwo.view.MenuBar','WireFrameTwo.view.myDoctor.DoctorProfile',
         'WireFrameTwo.view.myProfile.MyProfile','WireFrameTwo.view.Alarms.AlarmsHome',
-        'WireFrameTwo.view.reports.ReportsHome','WireFrameTwo.view.news.FeedsPage'],
+        'WireFrameTwo.view.reports.ReportsHome','WireFrameTwo.view.news.FeedsPage',
+      'WireFrameTwo.view.notifications.notifications'],
 
         stores : ['SessionStore','AlarmsStore',
             'HBAstore','FBGstore','DBPstore','PPGstore','RBSstore','SBPstore'],
@@ -17,6 +18,7 @@ Ext.define('WireFrameTwo.controller.Main',{
             reportView : 'myReports',
             alarmView : 'alarmHome',
             feedsView : 'feedsHome',
+            notsView : 'notifications',
 
             //buttons
             logout : 'menu button[action=logout]',
@@ -25,6 +27,7 @@ Ext.define('WireFrameTwo.controller.Main',{
             MyProfileButton : 'menu button[action="profile"]',
             MyReportButton : 'menu button[action="viewReports"]',
             ReminderButton : 'menu button[action="reminders"]',
+            NotsButton : 'menu button[action="viewNotifications"]',
             FeedsButton : 'menu button[action="feeds"]'
 
         },
@@ -50,9 +53,17 @@ Ext.define('WireFrameTwo.controller.Main',{
             },
             FeedsButton : {
               tap : 'onFeedTap'
+            },
+            NotsButton : {
+              tap : 'onNotsTap'
             }
 
         }
+    },
+    onNotsTap : function(){
+      Ext.create('WireFrameTwo.view.notifications.notifications');
+      var NotsView = this.getNotsView();
+      this.changeView(NotsView);
     },
     onMenuTap : function(){
         var MyMenu = this.getMenuBar();

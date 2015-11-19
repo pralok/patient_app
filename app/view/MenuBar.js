@@ -21,8 +21,12 @@ Ext.define('WireFrameTwo.view.MenuBar',{
                 action : 'viewReports',
                 text: 'My Reports',
                 iconCls: 'compose'
-            },
-            {
+            },{
+              xtype : 'button',
+              action : 'viewNotifications',
+              text: 'Notifications',
+              iconCls: 'action'
+            },{
                 xtype : 'button',
                 action : 'reminders',
                 text: 'Reminders',
