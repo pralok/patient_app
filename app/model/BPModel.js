@@ -1,9 +1,10 @@
-Ext.define('WireFrameTwo.model.ReportModel',{
+Ext.define('WireFrameTwo.model.BPModel',{
     extend : 'Ext.data.Model',
     config : {
-        fields : ['date','type','value','value_alt'],
+        fields : ['date','systolic_reading',
+        'systolic_target','dystolic_reading','dystolic_target'],
         proxy : {
-            url : 'ChartData.json',
+            url : 'BloodPressureData.json',
             type : 'ajax',
             reader : {
                 type : 'json',

@@ -1,4 +1,4 @@
-Ext.define('WireFrameTwo.view.reports.PatientReport',{
+Ext.define('WireFrameTwo.view.reports.BloodPressureCharts',{
     extend: "Ext.chart.CartesianChart",
     requires: [
         "Ext.TitleBar",
@@ -8,7 +8,7 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
         "Ext.chart.axis.Category",
         "Ext.draw.sprite.Circle"
     ],
-    alias: "widget.report_chart",
+    alias: "widget.bp_report_chart",
     config: {
         height: 200,
 //        flex: 1,
@@ -21,8 +21,8 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
             {
                 type: "line",
                 xField: "date",
-                yField: "hba_reading",
-                title: "HBA1C Trend",
+                yField: "systolic_reading",
+  //              title: "Weight Trend",
                 style: {
                     stroke: "lightblue",
                     lineWidth: 3
@@ -37,8 +37,24 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
             {
                 type: "line",
                 xField: "date",
-                yField: "target_reading",
-                title: "HBA1C Trend",
+                yField: "systolic_target",
+//                title: "HBA1C Trend",
+                style: {
+                    stroke: "#4C4C4C",
+                    lineWidth: 3
+                },
+                marker: {
+                    type: "circle",
+                    stroke: "#000000",
+                    radius: 2,
+                    lineWidth: 2
+                }
+            },
+            {
+                type: "line",
+                xField: "date",
+                yField: "dystolic_reading",
+//                title: "HBA1C Trend",
                 style: {
                     stroke: "#ff7f7f",
                     lineWidth: 3
@@ -49,6 +65,22 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
                     radius: 2,
                     lineWidth: 2
                 }
+            },
+            {
+                type: "line",
+                xField: "date",
+                yField: "dystolic_target",
+//                title: "HBA1C Trend",
+                style: {
+                    stroke: "#4C4C4C",
+                    lineWidth: 3
+                },
+                marker: {
+                    type: "circle",
+                    stroke: "#000000",
+                    radius: 2,
+                    lineWidth: 2
+                }
             }
         ],
         axes: [
@@ -56,10 +88,7 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
                 type: "numeric",
                 position: "left",
                 majorTickSteps: 0,
-                title: {
-                    fontSize: 15,
-                    text: "HBA Trend"
-                },
+                minimum : 60,
                 grid: {
                     even: {
                         fill: "#f9f9f9"
@@ -68,6 +97,10 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
             },
             {
                 type: "category",
+                title: {
+                    fontSize: 15,
+                    text: "Blood Pressure Trend"
+                },
                 position: "bottom"
             }
         ]

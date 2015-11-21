@@ -1,4 +1,4 @@
-Ext.define('WireFrameTwo.view.reports.PatientReport',{
+Ext.define('WireFrameTwo.view.reports.HBAcharts',{
     extend: "Ext.chart.CartesianChart",
     requires: [
         "Ext.TitleBar",
@@ -8,7 +8,7 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
         "Ext.chart.axis.Category",
         "Ext.draw.sprite.Circle"
     ],
-    alias: "widget.report_chart",
+    alias: "widget.hba_report_chart",
     config: {
         height: 200,
 //        flex: 1,
@@ -40,12 +40,12 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
                 yField: "target_reading",
                 title: "HBA1C Trend",
                 style: {
-                    stroke: "#ff7f7f",
+                    stroke: "#4C4C4C",
                     lineWidth: 3
                 },
                 marker: {
                     type: "circle",
-                    stroke: "red",
+                    stroke: "#000000",
                     radius: 2,
                     lineWidth: 2
                 }
@@ -56,10 +56,6 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
                 type: "numeric",
                 position: "left",
                 majorTickSteps: 0,
-                title: {
-                    fontSize: 15,
-                    text: "HBA Trend"
-                },
                 grid: {
                     even: {
                         fill: "#f9f9f9"
@@ -68,6 +64,10 @@ Ext.define('WireFrameTwo.view.reports.PatientReport',{
             },
             {
                 type: "category",
+                title: {
+                    fontSize: 15,
+                    text: "HBA1C Trend"
+                },
                 position: "bottom"
             }
         ]

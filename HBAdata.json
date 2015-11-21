@@ -1,0 +1,29 @@
+{
+  "chartdata": [
+    {
+      "date": "01/01/2015",
+      "hba_reading": 6.2,
+      "target_reading" : 6.5
+    },
+    {
+      "date": "03/02/2015",
+      "hba_reading": 7,
+      "target_reading" : 6.5
+    },
+    {
+      "date": "14/03/2015",
+      "hba_reading": 7.2,
+      "target_reading" : 6.5
+    },
+    {
+      "date": "28/04/2015",
+      "hba_reading": 6.8,
+      "target_reading" : 6.5
+    },
+    {
+      "date": "03/06/2015",
+      "hba_reading": 6.5,
+      "target_reading" : 6.5
+    }
+  ]
+}

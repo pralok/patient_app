@@ -1,22 +1,27 @@
 Ext.define('WireFrameTwo.view.notifications.notifications',{
   extend: 'Ext.Panel',
   xtype: 'notifications',
-  requires: ['WireFrameTwo.view.ToolBar','Ext.List', 'WireFrameTwo.store.NewsStore'],
+  requires: ['WireFrameTwo.view.ToolBar','Ext.List',
+  'WireFrameTwo.store.NotificationStore'],
   config: {
       items: [
           {
               xtype : 'toolbarmenu',
-              title : 'Home'
+              title : 'Notifications'
           },{
               xtype : 'list',
-              itemTpl : '<img src="resources/startup/320x460.jpg"><p>{title}</p>',
+              itemTpl : '<div class="talk-bubble tri-right left-in">'+
+              '<div class="talktext">'+
+              '<p>{message}</p>{date}<div>' +
+              '</div></div>',
               height : '100%',
               store : {
-                  type : 'newsStore'
+                  type : 'notificationStore'
               },
               styleHtmlContent : true,
-              cls : 'newsFeed',
-              scroll: 'vertical'
+              itemCls : 'notifications',
+              scroll: 'vertical',
+              disableSelection : true
           }
       ]
   },

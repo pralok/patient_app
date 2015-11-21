@@ -80,6 +80,7 @@ Ext.define('WireFrameTwo.controller.Login',{
           failure: function () {
             // show connection error loginError
             console.log("connection error");
+            Ext.toast('Please connect to Internet and try again !');
           }
         })
       }
@@ -172,6 +173,7 @@ Ext.define('WireFrameTwo.controller.Login',{
         failure: function () {
           // show connection error loginError
           console.log("connection error");
+          Ext.toast('Please connect to Internet and try again !');
         }
       })
     },

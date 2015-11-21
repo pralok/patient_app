@@ -1,9 +1,9 @@
-Ext.define('WireFrameTwo.model.ReportModel',{
+Ext.define('WireFrameTwo.model.WeightModel',{
     extend : 'Ext.data.Model',
     config : {
-        fields : ['date','type','value','value_alt'],
+        fields : ['date','current_weight','target_weight'],
         proxy : {
-            url : 'ChartData.json',
+            url : 'WeightData.json',
             type : 'ajax',
             reader : {
                 type : 'json',

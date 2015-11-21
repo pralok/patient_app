@@ -1,27 +1,31 @@
 Ext.define('WireFrameTwo.view.reports.ReportsHome',{
     extend : 'Ext.Panel',
-    requires : ['WireFrameTwo.view.reports.PatientReport','WireFrameTwo.view.ToolBar'],
+    requires : ['WireFrameTwo.view.reports.PatientReport',
+    'WireFrameTwo.view.ToolBar','WireFrameTwo.view.reports.HBAcharts',
+  'WireFrameTwo.view.reports.WeightCharts','WireFrameTwo.view.reports.BloodPressureCharts'],
     xtype : 'myReports',
     config : {
         fullscreen : true,
+        styleHtmlContent : true,
         scrollable : true,
         items : [
             {
               xtype : 'toolbarmenu'
             },
             {
-                xtype : 'report_chart',
+                xtype : 'hba_report_chart',
                 title : 'Reports',
                 store : 'HBAstore'
             }
             ,{
-                xtype : 'report_chart',
+                xtype : 'weight_report_chart',
                 title : 'Reports',
-                store : 'FBGstore'//,//mandatory
-            }                    ,{
-                xtype : 'report_chart',
+                store : 'WeightStore'//,//mandatory
+            }
+            ,{
+                xtype : 'bp_report_chart',
                 title : 'Reports',
-                store : 'PPGstore'
+                store : 'BPStore'
             }                    ,{
                 xtype : 'report_chart',
                 title : 'Reports',

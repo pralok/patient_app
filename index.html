@@ -100,6 +100,48 @@
             background-color: yellow;
          }
 
+         .talk-bubble {
+         	margin: 10px;
+           display: inline-block;
+           position: relative;
+         	width: 80%;
+         	height: auto;
+         	background-color: lightblue;
+         }
+
+         .tri-right.left-in:after{
+	          content: ' ';
+	          position: absolute;
+	          width: 0;
+	          height: 0;
+            left: -20px;
+	          right: auto;
+            top: 38px;
+	          bottom: auto;
+	          border: 12px solid;
+	          border-color: lightblue lightblue transparent transparent;
+          }
+
+          .talktext{
+            padding: 1em;
+	          text-align: left;
+            line-height: 1.5em;
+          }
+          .talktext p{
+            /* remove webkit p margins */
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+          }
+
+
+         .notifications .message{
+           padding : 15px;
+           background-color: lightblue;
+           border-bottom-right-radius: 15%;
+           border-top-right-radius: 15%;
+           border-bottom-left-radius: 15%;
+         }
+
     </style>
     <!-- The line below must be kept intact for Sencha Command to build your application -->
     <script id="microloader" type="text/javascript" src=".sencha/app/microloader/development.js"></script>

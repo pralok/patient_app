@@ -3,122 +3,146 @@
     {
       "date": "2010",
       "type": "type1",
-      "value": 140
+      "value": 7,
+      "value_alt" : 6.5
     },
     {
       "date": "2011",
       "type": "type2",
-      "value": 141
+      "value": 141,
+      "value_alt" : 6.5
     },
     {
       "date": "2012",
       "type": "type3",
-      "value": 145
+      "value": 145,
+      "value_alt" : 6.5
     },
     {
       "date": "2013",
       "type": "type4",
-      "value": 135
+      "value": 135,
+      "value_alt" : 6.5
     },
     {
       "date": "2014",
       "type": "type5",
-      "value": 120
+      "value": 120,
+      "value_alt" : 6.5
     },
     {
       "date": "2015",
       "type": "type6",
-      "value": 123
+      "value": 123,
+      "value_alt" : 6.5
     },
     {
       "date": "2010",
       "type": "type2",
-      "value": 135
+      "value": 135,
+      "value_alt" : 6.5
     },
     {
       "date": "2011",
       "type": "type1",
-      "value": 137
+      "value": 7.5,
+      "value_alt" : 6.5
     },
     {
       "date": "2012",
       "type": "type5",
-      "value": 140
+      "value": 140,
+      "value_alt" : 6.5
     },
     {
       "date": "2013",
       "type": "type6",
-      "value": 141
+      "value": 141,
+      "value_alt" : 6.5
     },
     {
       "date": "2014",
       "type": "type3",
-      "value": 138
+      "value": 138,
+      "value_alt" : 6.5
     },
     {
       "date": "2015",
       "type": "type4",
-      "value": 129
+      "value": 129,
+      "value_alt" : 6.5
     },
     {
       "date": "2012",
       "type": "type1",
-      "value": 133
+      "value": 6,
+      "value_alt" : 6.5
     },
     {
       "date": "2011",
       "type": "type2",
-      "value": 136
+      "value": 136,
+      "value_alt" : 6.5
     },
     {
       "date": "2012",
       "type": "type3",
-      "value": 134
+      "value": 134,
+      "value_alt" : 6.5
     },
     {
       "date": "2013",
       "type": "type4",
-      "value": 140
+      "value": 140,
+      "value_alt" : 6.5
     },
     {
       "date": "2014",
       "type": "type5",
-      "value": 145
+      "value": 145,
+      "value_alt" : 6.5
     },
     {
       "date": "2015",
       "type": "type6",
-      "value": 146
+      "value": 146,
+      "value_alt" : 6.5
     },
     {
       "date": "2010",
       "type": "type2",
-      "value": 143
+      "value": 143,
+      "value_alt" : 6.5
     },
     {
       "date": "2013",
       "type": "type1",
-      "value": 138
+      "value": 6.5,
+      "value_alt" : 6.5
     },
     {
       "date": "2012",
       "type": "type5",
-      "value": 140
+      "value": 140,
+      "value_alt" : 6.5
     },
     {
       "date": "2013",
       "type": "type6",
-      "value": 145
+      "value": 145,
+      "value_alt" : 6.5
     },
     {
       "date": "2014",
       "type": "type3",
-      "value": 150
+      "value": 150,
+      "value_alt" : 6.5
     },
     {
       "date": "2015",
       "type": "type4",
-      "value": 146
+      "value": 146,
+      "value_alt" : 6.5
     }
   ]
 }

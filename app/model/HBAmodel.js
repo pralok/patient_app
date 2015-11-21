@@ -1,9 +1,9 @@
-Ext.define('WireFrameTwo.model.ReportModel',{
+Ext.define('WireFrameTwo.model.HBAmodel',{
     extend : 'Ext.data.Model',
     config : {
-        fields : ['date','type','value','value_alt'],
+        fields : ['date','hba_reading','target_reading'],
         proxy : {
-            url : 'ChartData.json',
+            url : 'HBAdata.json',
             type : 'ajax',
             reader : {
                 type : 'json',

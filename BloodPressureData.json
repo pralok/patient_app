@@ -1,0 +1,39 @@
+{
+  "chartdata": [
+    {
+      "date": "01/01/2015",
+      "systolic_reading": 125,
+      "systolic_target" : 120,
+      "dystolic_reading": 70,
+      "dystolic_target" : 80
+    },
+    {
+      "date": "04/01/2015",
+      "systolic_reading": 125,
+      "systolic_target" : 120,
+      "dystolic_reading": 72,
+      "dystolic_target" : 80
+    },
+    {
+      "date": "06/01/2015",
+      "systolic_reading": 124,
+      "systolic_target" : 120,
+      "dystolic_reading": 83,
+      "dystolic_target" : 80
+    },
+    {
+      "date": "08/01/2015",
+      "systolic_reading": 123,
+      "systolic_target" : 120,
+      "dystolic_reading": 85,
+      "dystolic_target" : 80
+    },
+    {
+      "date": "10/01/2015",
+      "systolic_reading": 121,
+      "systolic_target" : 120,
+      "dystolic_reading": 83,
+      "dystolic_target" : 80
+    }
+  ]
+}
