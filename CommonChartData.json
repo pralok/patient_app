@@ -1,0 +1,154 @@
+{
+  "chartdata": [
+    {
+      "date": "01/01/2015",
+      "type": "hba1c",
+      "value": 6.2,
+      "target_value" : 6.5
+    },
+    {
+      "date": "03/02/2015",
+      "type": "hba1c",
+      "value": 6.7,
+      "target_value" : 6.5
+    },
+    {
+      "date": "14/03/2015",
+      "type": "hba1c",
+      "value": 6.4,
+      "target_value" : 6.5
+    },
+    {
+      "date": "28/04/2015",
+      "type": "hba1c",
+      "value": 6.8,
+      "target_value" : 6.5
+    },
+    {
+      "date": "03/06/2015",
+      "type": "hba1c",
+      "value": 6.7,
+      "target_value" : 6.5
+    },
+    {
+      "date": "04/01/2015",
+      "type": "weight",
+      "value": 82,
+      "target_value" : 70
+    },
+    {
+      "date": "11/02/2015",
+      "type": "weight",
+      "value": 80,
+      "target_value" : 70
+    },
+    {
+      "date": "15/03/2015",
+      "type": "weight",
+      "value": 75,
+      "target_value" : 70
+    },
+    {
+      "date": "07/04/2015",
+      "type": "weight",
+      "value": 74,
+      "target_value" : 70
+    },
+    {
+      "date": "08/05/2015",
+      "type": "weight",
+      "value": 72,
+      "target_value" : 70
+    },
+    {
+      "date": "01/01/2015",
+      "type": "fasting",
+      "value": 110,
+      "target_value" : 100
+    },
+    {
+      "date": "01/03/2015",
+      "type": "fasting",
+      "value": 95,
+      "target_value" : 100
+    },
+    {
+      "date": "04/05/2015",
+      "type": "fasting",
+      "value": 103,
+      "target_value" : 100
+    },
+    {
+      "date": "05/05/2015",
+      "type": "fasting",
+      "value": 110,
+      "target_value" : 100
+    },
+    {
+      "date": "15/05/2015",
+      "type": "fasting",
+      "value": 105,
+      "target_value" : 100
+    },
+    {
+      "date": "15/05/2015",
+      "type": "post_prandial",
+      "value": 130,
+      "target_value" : 120
+    },
+    {
+      "date": "16/05/2015",
+      "type": "post_prandial",
+      "value": 126,
+      "target_value" : 120
+    },
+    {
+      "date": "17/05/2015",
+      "type": "post_prandial",
+      "value": 128,
+      "target_value" : 120
+    },
+    {
+      "date": "18/05/2015",
+      "type": "post_prandial",
+      "value": 120,
+      "target_value" : 120
+    },
+    {
+      "date": "19/05/2015",
+      "type": "post_prandial",
+      "value": 123,
+      "target_value" : 120
+    },
+    {
+      "date": "16/05/2015",
+      "type": "random",
+      "value": 95,
+      "target_value" : 100
+    },
+    {
+      "date": "17/05/2015",
+      "type": "random",
+      "value": 103,
+      "target_value" : 100
+    },
+    {
+      "date": "18/05/2015",
+      "type": "random",
+      "value": 105,
+      "target_value" : 100
+    },
+    {
+      "date": "19/05/2015",
+      "type": "random",
+      "value": 102,
+      "target_value" : 100
+    },
+    {
+      "date": "20/05/2015",
+      "type": "random",
+      "value": 94,
+      "target_value" : 100
+    }
+  ]
+}

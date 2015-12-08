@@ -1,4 +1,4 @@
-Ext.define('WireFrameTwo.view.reports.WeightCharts',{
+Ext.define('WireFrameTwo.view.reports.RandomCharts',{
     extend: "Ext.chart.CartesianChart",
     requires: [
         "Ext.TitleBar",
@@ -8,7 +8,7 @@ Ext.define('WireFrameTwo.view.reports.WeightCharts',{
         "Ext.chart.axis.Category",
         "Ext.draw.sprite.Circle"
     ],
-    alias: "widget.weight_report_chart",
+    alias: "widget.random_report_chart",
     config: {
         height: 200,
 //        flex: 1,
@@ -56,7 +56,7 @@ Ext.define('WireFrameTwo.view.reports.WeightCharts',{
                 type: "numeric",
                 position: "left",
                 majorTickSteps: 0,
-                minimum : 60,
+//                minimum : 80,
                 grid: {
                     even: {
                         fill: "#f9f9f9"
@@ -67,7 +67,7 @@ Ext.define('WireFrameTwo.view.reports.WeightCharts',{
                 type: "category",
                 title: {
                     fontSize: 15,
-                    text: "Weight Trend"
+                    text: "Report Trend"
                 },
                 position: "bottom"
             }

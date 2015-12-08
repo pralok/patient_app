@@ -1,11 +1,11 @@
-Ext.define('WireFrameTwo.store.WeightStore',{
+Ext.define('WireFrameTwo.store.FastingStore',{
     extend : 'Ext.data.Store',
     requires : ['WireFrameTwo.model.CommonModel'],
-    alias : 'store.WeightStore',
+    alias : 'store.FastingStore',
     config : {
-        storeId : 'WeightStore',
+        storeId : 'FastingStore',
         model : 'WireFrameTwo.model.CommonModel',
-        filters : { property : "type", value : "weight"},
+        filters : { property : "type", value : "fasting"},
         autoLoad : true
     }
 })

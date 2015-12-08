@@ -2,7 +2,9 @@ Ext.define('WireFrameTwo.view.reports.ReportsHome',{
     extend : 'Ext.Panel',
     requires : ['WireFrameTwo.view.reports.PatientReport',
     'WireFrameTwo.view.ToolBar','WireFrameTwo.view.reports.HBAcharts',
-  'WireFrameTwo.view.reports.WeightCharts','WireFrameTwo.view.reports.BloodPressureCharts'],
+  'WireFrameTwo.view.reports.WeightCharts','WireFrameTwo.view.reports.BloodPressureCharts',
+  'WireFrameTwo.view.reports.FastingCharts','WireFrameTwo.view.reports.PPGCharts',
+  'WireFrameTwo.view.reports.RandomCharts'],
     xtype : 'myReports',
     config : {
         fullscreen : true,
@@ -26,20 +28,21 @@ Ext.define('WireFrameTwo.view.reports.ReportsHome',{
                 xtype : 'bp_report_chart',
                 title : 'Reports',
                 store : 'BPStore'
-            }                    ,{
-                xtype : 'report_chart',
-                title : 'Reports',
-                store : 'RBSstore'//mandatory
             }
             ,{
-                xtype : 'report_chart',
+                xtype : 'fasting_report_chart',
                 title : 'Reports',
-                store : 'SBPstore'//mandatory
+                store : 'FastingStore'//mandatory
             }
             ,{
-                xtype : 'report_chart',
+                xtype : 'ppg_report_chart',
                 title : 'Reports',
-                store : 'DBPstore'//mandatory
+                store : 'PPGstore'//mandatory
+            }
+            ,{
+                xtype : 'random_report_chart',
+                title : 'Reports',
+                store : 'RandomStore'//mandatory
             }
         ]
     },

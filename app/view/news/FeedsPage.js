@@ -8,7 +8,7 @@ Ext.define('WireFrameTwo.view.news.FeedsPage', {
       items: [
         {
             xtype : 'toolbarmenu',
-            title : 'Feeds'
+            title : 'Knowledge Resource'
         },
       {
           xtype : 'panel',

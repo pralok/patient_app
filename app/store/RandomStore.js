@@ -1,11 +1,11 @@
-Ext.define('WireFrameTwo.store.WeightStore',{
+Ext.define('WireFrameTwo.store.RandomStore',{
     extend : 'Ext.data.Store',
     requires : ['WireFrameTwo.model.CommonModel'],
-    alias : 'store.WeightStore',
+    alias : 'store.RandomStore',
     config : {
-        storeId : 'WeightStore',
+        storeId : 'RandomStore',
         model : 'WireFrameTwo.model.CommonModel',
-        filters : { property : "type", value : "weight"},
+        filters : { property : "type", value : "random"},
         autoLoad : true
     }
 })

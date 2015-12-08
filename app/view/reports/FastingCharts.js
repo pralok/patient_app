@@ -1,4 +1,4 @@
-Ext.define('WireFrameTwo.view.reports.WeightCharts',{
+Ext.define('WireFrameTwo.view.reports.FastingCharts',{
     extend: "Ext.chart.CartesianChart",
     requires: [
         "Ext.TitleBar",
@@ -8,7 +8,7 @@ Ext.define('WireFrameTwo.view.reports.WeightCharts',{
         "Ext.chart.axis.Category",
         "Ext.draw.sprite.Circle"
     ],
-    alias: "widget.weight_report_chart",
+    alias: "widget.fasting_report_chart",
     config: {
         height: 200,
 //        flex: 1,
@@ -22,14 +22,13 @@ Ext.define('WireFrameTwo.view.reports.WeightCharts',{
                 type: "line",
                 xField: "date",
                 yField: "value",
-  //              title: "Weight Trend",
                 style: {
-                    stroke: "#ff7f7f",
+                    stroke: "lightblue",
                     lineWidth: 3
                 },
                 marker: {
                     type: "circle",
-                    stroke: "red",
+                    stroke: "blue",
                     radius: 2,
                     lineWidth: 3
                 }
@@ -38,7 +37,6 @@ Ext.define('WireFrameTwo.view.reports.WeightCharts',{
                 type: "line",
                 xField: "date",
                 yField: "target_value",
-//                title: "HBA1C Trend",
                 style: {
                     stroke: "#4C4C4C",
                     lineWidth: 3
@@ -55,8 +53,8 @@ Ext.define('WireFrameTwo.view.reports.WeightCharts',{
             {
                 type: "numeric",
                 position: "left",
-                majorTickSteps: 0,
                 minimum : 60,
+                majorTickSteps: 0,
                 grid: {
                     even: {
                         fill: "#f9f9f9"
@@ -67,9 +65,10 @@ Ext.define('WireFrameTwo.view.reports.WeightCharts',{
                 type: "category",
                 title: {
                     fontSize: 15,
-                    text: "Weight Trend"
+                    text: "Fasting Trend"
                 },
                 position: "bottom"
+
             }
         ]
     }

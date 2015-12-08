@@ -21,7 +21,7 @@ Ext.define('WireFrameTwo.view.reports.HBAcharts',{
             {
                 type: "line",
                 xField: "date",
-                yField: "hba_reading",
+                yField: "value",
                 title: "HBA1C Trend",
                 style: {
                     stroke: "lightblue",
@@ -37,7 +37,7 @@ Ext.define('WireFrameTwo.view.reports.HBAcharts',{
             {
                 type: "line",
                 xField: "date",
-                yField: "target_reading",
+                yField: "target_value",
                 title: "HBA1C Trend",
                 style: {
                     stroke: "#4C4C4C",

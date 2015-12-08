@@ -8,7 +8,7 @@ Ext.define('WireFrameTwo.controller.Main',{
 
         stores : ['SessionStore','AlarmsStore',
             'HBAstore','FBGstore','DBPstore','PPGstore','RBSstore','SBPstore',
-          'WeightStore','BPStore'],
+          'WeightStore','BPStore','FastingStore','RandomStore'],
 
         refs : {
             //views

@@ -136,6 +136,8 @@ Ext.define('WireFrameTwo.controller.Profile',{
           address : EditView.address,
           contact_emergency : EditView.emg_contact
         };
+
+        console.log(UpdateData);
         //submit request
         Ext.Ajax.request({
             url: 'http://squer.mirealux.com/wdm-pm-api/update-profile',//'UserProfileUpdate.json'
@@ -193,7 +195,7 @@ Ext.define('WireFrameTwo.controller.Profile',{
         });
 
         //hide view
-        this.onHideProfile();
+//        this.onHideProfile();
     },
 
     onFileUploadSuccess: function() {
