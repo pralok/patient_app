@@ -1,22 +1,14 @@
-Ext.define('WireFrameTwo.view.news.Faqs', {
+Ext.define('WireFrameTwo.view.faq.Faqs', {
     extend: 'Ext.Panel',
     xtype: 'faqs',
-    requires: ['WireFrameTwo.view.ToolBar','Ext.Button','Ext.dataview.List',
+    requires: ['WireFrameTwo.view.ToolBar','Ext.dataview.List',
   'WireFrameTwo.store.FaqStore'],
     config: {
       layout: 'fit',
         items: [
             {
-                xtype : 'toolbarmenu',
-                title : 'Home',
-                items : [
-                  {
-                    xtype : 'button',
-                    text : 'Main',
-                    action : 'toFeeds',
-                    ui : 'back'
-                  }
-                ]
+              xtype : 'toolbarmenu',
+              title : 'FAQs'
             },{
               xtype : 'list',
               height : '100%',

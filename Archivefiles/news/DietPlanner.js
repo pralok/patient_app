@@ -6,16 +6,8 @@ Ext.define('WireFrameTwo.view.news.DietPlanner', {
       layout: 'fit',
         items: [
             {
-                xtype : 'toolbarmenu',
-                title : 'Home',
-                items : [
-                  {
-                    xtype : 'button',
-                    text : 'Main',
-                    action : 'toFeeds',
-                    ui : 'back'
-                  }
-                ]
+              xtype : 'toolbarmenu',
+              title : 'Diet Planner'
             },{
               scrollable : true,
               html : 'content for diet planner page awaited..',

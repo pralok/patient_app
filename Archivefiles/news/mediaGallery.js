@@ -1,21 +1,13 @@
 Ext.define('WireFrameTwo.view.news.mediaGallery', {
     extend: 'Ext.Panel',
     xtype: 'mediaGallery',
-    requires: ['WireFrameTwo.view.ToolBar','Ext.Button'],
+    requires: ['WireFrameTwo.view.ToolBar'],
     config: {
       layout: 'fit',
         items: [
             {
-                xtype : 'toolbarmenu',
-                title : 'Home',
-                items : [
-                  {
-                    xtype : 'button',
-                    text : 'Main',
-                    action : 'toFeeds',
-                    ui : 'back'
-                  }
-                ]
+              xtype : 'toolbarmenu',
+              title : 'Gallery'
             },{
               scrollable : true,
               html : '<h5>How to Administer Insulin</h5>' +

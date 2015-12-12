@@ -20,7 +20,7 @@ Ext.define('WireFrameTwo.view.notifications.notifications',{
               },
               styleHtmlContent : true,
               itemCls : 'notifications',
-              scroll: 'vertical',
+              //scroll: 'vertical',
               disableSelection : true
           }
       ]

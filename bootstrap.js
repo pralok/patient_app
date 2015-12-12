@@ -763,9 +763,8 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.viewport.WP"
   ],
   "WireFrameTwo.controller.Alarms": [],
+  "WireFrameTwo.controller.Home": [],
   "WireFrameTwo.controller.Login": [],
-  "WireFrameTwo.controller.Main": [],
-  "WireFrameTwo.controller.News": [],
   "WireFrameTwo.controller.Profile": [],
   "WireFrameTwo.controller.RefId": [],
   "WireFrameTwo.controller.Report": [],
@@ -798,8 +797,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "WireFrameTwo.view.Alarms.AddReminder": [],
   "WireFrameTwo.view.Alarms.AlarmsHome": [],
   "WireFrameTwo.view.Alarms.TimePickerField": [],
-  "WireFrameTwo.view.MenuBar": [],
   "WireFrameTwo.view.ToolBar": [],
+  "WireFrameTwo.view.home.HomePage": [],
   "WireFrameTwo.view.login.LoginPage": [],
   "WireFrameTwo.view.login.SignUpPage": [],
   "WireFrameTwo.view.myDoctor.DoctorProfile": [],
@@ -1766,9 +1765,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
   "WireFrameTwo.controller.Alarms": [],
+  "WireFrameTwo.controller.Home": [],
   "WireFrameTwo.controller.Login": [],
-  "WireFrameTwo.controller.Main": [],
-  "WireFrameTwo.controller.News": [],
   "WireFrameTwo.controller.Profile": [],
   "WireFrameTwo.controller.RefId": [],
   "WireFrameTwo.controller.Report": [],
@@ -1839,11 +1837,11 @@ Ext.ClassManager.addNameAliasMappings({
   "WireFrameTwo.view.Alarms.TimePickerField": [
     "widget.timepickerfield"
   ],
-  "WireFrameTwo.view.MenuBar": [
-    "widget.menu"
-  ],
   "WireFrameTwo.view.ToolBar": [
     "widget.toolbarmenu"
+  ],
+  "WireFrameTwo.view.home.HomePage": [
+    "widget.homePage"
   ],
   "WireFrameTwo.view.login.LoginPage": [
     "widget.loginPage"

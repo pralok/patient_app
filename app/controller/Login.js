@@ -2,17 +2,15 @@ Ext.define('WireFrameTwo.controller.Login',{
     extend : 'Ext.app.Controller',
     requires : ['Ext.Toast'],
     config : {
-        views : ['WireFrameTwo.view.login.LoginPage','WireFrameTwo.view.news.FeedsPage'
-      ,'WireFrameTwo.view.login.SignUpPage'],
+        views : ['WireFrameTwo.view.login.LoginPage',
+      ,'WireFrameTwo.view.login.SignUpPage','WireFrameTwo.view.home.HomePage'],
         models : ['WireFrameTwo.model.UserSession'],
         refs : {
             loginPage : 'loginPage',
             loginButton : 'loginPage button[action="Login"]',
             signUpButton : 'loginPage button[action="SignUp"]',
             errorMsg : 'loginPage #loginError',
-
-            homePage : 'feedsHome',
-
+            homePage : 'homePage',
             signupPage : 'SignupPage',
             registerButton : 'SignupPage button[action="Register"]',
             cancelRegButton : 'SignupPage toolbar button[action="cancelReg"]'
@@ -137,6 +135,14 @@ Ext.define('WireFrameTwo.controller.Login',{
 
       //validate form
 
+      var task = Ext.create('Ext.util.DelayedTask', function() {
+          Ext.Viewport.mask({ xtype: 'loadmask',
+                             message: "Checking Credentials.." });
+      }, this);
+
+      task.delay(500);
+
+
       Ext.Ajax.request({
         url: 'http://squer.mirealux.com/wdm-pm-api/login',//abc-abc
         method: 'post',
@@ -146,9 +152,14 @@ Ext.define('WireFrameTwo.controller.Login',{
           timestamp : new Date().getTime()
         },
         success: function (response) {
+          //
+          task.cancel();
+          Ext.Viewport.unmask();
+
           var result = Ext.JSON.decode(response.responseText);
 
           if (result.success === true) {
+
             //reset fields
             me.getLoginPage().reset();
 
@@ -171,6 +182,10 @@ Ext.define('WireFrameTwo.controller.Login',{
           }
         },
         failure: function () {
+          //
+          task.cancel();
+          Ext.Viewport.unmask();
+
           // show connection error loginError
           console.log("connection error");
           Ext.toast('Please connect to Internet and try again !');
@@ -193,7 +208,7 @@ Ext.define('WireFrameTwo.controller.Login',{
     },
 
     createView : function(){
-        Ext.create('WireFrameTwo.view.news.FeedsPage');
+        Ext.create('WireFrameTwo.view.home.HomePage');//'WireFrameTwo.view.news.FeedsPage');
     },
 
     ChangeView : function(){
