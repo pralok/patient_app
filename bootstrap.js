@@ -636,17 +636,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.layout.wrapper.BoxDock": [],
   "Ext.layout.wrapper.Dock": [],
   "Ext.layout.wrapper.Inner": [],
-  "Ext.log.Base": [],
-  "Ext.log.Logger": [],
-  "Ext.log.filter.Filter": [],
-  "Ext.log.filter.Priority": [],
-  "Ext.log.formatter.Default": [],
-  "Ext.log.formatter.Formatter": [],
-  "Ext.log.formatter.Identity": [],
-  "Ext.log.writer.Console": [],
-  "Ext.log.writer.DocumentTitle": [],
-  "Ext.log.writer.Remote": [],
-  "Ext.log.writer.Writer": [],
   "Ext.mixin.Bindable": [],
   "Ext.mixin.Filterable": [],
   "Ext.mixin.Mixin": [],
@@ -746,6 +735,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.ActionOverFlowMenuButton": [],
   "Ext.ux.ApplicationMenu": [],
   "Ext.ux.ContextMenu": [],
+  "Ext.ux.Fileup": [],
   "Ext.ux.MenuButton": [],
   "Ext.ux.TabMenuButton": [],
   "Ext.ux.device.Analytics": [],
@@ -772,7 +762,65 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "WireFrameTwo.view.Main": []
+  "WireFrameTwo.controller.Alarms": [],
+  "WireFrameTwo.controller.Login": [],
+  "WireFrameTwo.controller.Main": [],
+  "WireFrameTwo.controller.News": [],
+  "WireFrameTwo.controller.Profile": [],
+  "WireFrameTwo.controller.RefId": [],
+  "WireFrameTwo.controller.Report": [],
+  "WireFrameTwo.model.AlarmModel": [],
+  "WireFrameTwo.model.BPModel": [],
+  "WireFrameTwo.model.CommonModel": [],
+  "WireFrameTwo.model.FaqsModel": [],
+  "WireFrameTwo.model.NewsModel": [],
+  "WireFrameTwo.model.NotificationModel": [],
+  "WireFrameTwo.model.RefillModel": [],
+  "WireFrameTwo.model.ReportModel": [],
+  "WireFrameTwo.model.UserSession": [],
+  "WireFrameTwo.store.AlarmsStore": [],
+  "WireFrameTwo.store.BPStore": [],
+  "WireFrameTwo.store.DBPstore": [],
+  "WireFrameTwo.store.FBGstore": [],
+  "WireFrameTwo.store.FaqStore": [],
+  "WireFrameTwo.store.FastingStore": [],
+  "WireFrameTwo.store.HBAstore": [],
+  "WireFrameTwo.store.NewsStore": [],
+  "WireFrameTwo.store.NotificationStore": [],
+  "WireFrameTwo.store.PPGstore": [],
+  "WireFrameTwo.store.RBSstore": [],
+  "WireFrameTwo.store.RandomStore": [],
+  "WireFrameTwo.store.RefillStore": [],
+  "WireFrameTwo.store.SBPstore": [],
+  "WireFrameTwo.store.SessionStore": [],
+  "WireFrameTwo.store.WeightStore": [],
+  "WireFrameTwo.view.Alarms.AddAlarmPage": [],
+  "WireFrameTwo.view.Alarms.AddReminder": [],
+  "WireFrameTwo.view.Alarms.AlarmsHome": [],
+  "WireFrameTwo.view.Alarms.TimePickerField": [],
+  "WireFrameTwo.view.MenuBar": [],
+  "WireFrameTwo.view.ToolBar": [],
+  "WireFrameTwo.view.login.LoginPage": [],
+  "WireFrameTwo.view.login.SignUpPage": [],
+  "WireFrameTwo.view.myDoctor.DoctorProfile": [],
+  "WireFrameTwo.view.myProfile.MyProfile": [],
+  "WireFrameTwo.view.myProfile.MyProfileEdit": [],
+  "WireFrameTwo.view.news.DietPlanner": [],
+  "WireFrameTwo.view.news.Faqs": [],
+  "WireFrameTwo.view.news.FeedsPage": [],
+  "WireFrameTwo.view.news.mediaGallery": [],
+  "WireFrameTwo.view.news.newsdetails": [],
+  "WireFrameTwo.view.news.newslist": [],
+  "WireFrameTwo.view.notifications.notifications": [],
+  "WireFrameTwo.view.reports.BloodPressureCharts": [],
+  "WireFrameTwo.view.reports.FastingCharts": [],
+  "WireFrameTwo.view.reports.HBAcharts": [],
+  "WireFrameTwo.view.reports.NewReportForm": [],
+  "WireFrameTwo.view.reports.PPGCharts": [],
+  "WireFrameTwo.view.reports.PatientReport": [],
+  "WireFrameTwo.view.reports.RandomCharts": [],
+  "WireFrameTwo.view.reports.ReportsHome": [],
+  "WireFrameTwo.view.reports.WeightCharts": []
 });
 
 Ext.ClassManager.addNameAliasMappings({
@@ -1577,17 +1625,6 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.layout.wrapper.BoxDock": [],
   "Ext.layout.wrapper.Dock": [],
   "Ext.layout.wrapper.Inner": [],
-  "Ext.log.Base": [],
-  "Ext.log.Logger": [],
-  "Ext.log.filter.Filter": [],
-  "Ext.log.filter.Priority": [],
-  "Ext.log.formatter.Default": [],
-  "Ext.log.formatter.Formatter": [],
-  "Ext.log.formatter.Identity": [],
-  "Ext.log.writer.Console": [],
-  "Ext.log.writer.DocumentTitle": [],
-  "Ext.log.writer.Remote": [],
-  "Ext.log.writer.Writer": [],
   "Ext.mixin.Bindable": [],
   "Ext.mixin.Filterable": [],
   "Ext.mixin.Mixin": [],
@@ -1695,6 +1732,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.ActionOverFlowMenuButton": [],
   "Ext.ux.ApplicationMenu": [],
   "Ext.ux.ContextMenu": [],
+  "Ext.ux.Fileup": [
+    "widget.fileupload"
+  ],
   "Ext.ux.MenuButton": [],
   "Ext.ux.TabMenuButton": [],
   "Ext.ux.device.Analytics": [],
@@ -1725,8 +1765,148 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
-  "WireFrameTwo.view.Main": [
-    "widget.main"
+  "WireFrameTwo.controller.Alarms": [],
+  "WireFrameTwo.controller.Login": [],
+  "WireFrameTwo.controller.Main": [],
+  "WireFrameTwo.controller.News": [],
+  "WireFrameTwo.controller.Profile": [],
+  "WireFrameTwo.controller.RefId": [],
+  "WireFrameTwo.controller.Report": [],
+  "WireFrameTwo.model.AlarmModel": [],
+  "WireFrameTwo.model.BPModel": [],
+  "WireFrameTwo.model.CommonModel": [],
+  "WireFrameTwo.model.FaqsModel": [],
+  "WireFrameTwo.model.NewsModel": [],
+  "WireFrameTwo.model.NotificationModel": [],
+  "WireFrameTwo.model.RefillModel": [],
+  "WireFrameTwo.model.ReportModel": [],
+  "WireFrameTwo.model.UserSession": [],
+  "WireFrameTwo.store.AlarmsStore": [
+    "store.AlarmsStore"
+  ],
+  "WireFrameTwo.store.BPStore": [
+    "store.BPStore"
+  ],
+  "WireFrameTwo.store.DBPstore": [
+    "store.DBPstore"
+  ],
+  "WireFrameTwo.store.FBGstore": [
+    "store.FBGstore"
+  ],
+  "WireFrameTwo.store.FaqStore": [
+    "store.faqStore"
+  ],
+  "WireFrameTwo.store.FastingStore": [
+    "store.FastingStore"
+  ],
+  "WireFrameTwo.store.HBAstore": [
+    "store.HBAstore"
+  ],
+  "WireFrameTwo.store.NewsStore": [
+    "store.newsStore"
+  ],
+  "WireFrameTwo.store.NotificationStore": [
+    "store.notificationStore"
+  ],
+  "WireFrameTwo.store.PPGstore": [
+    "store.PPGstore"
+  ],
+  "WireFrameTwo.store.RBSstore": [
+    "store.RBSstore"
+  ],
+  "WireFrameTwo.store.RandomStore": [
+    "store.RandomStore"
+  ],
+  "WireFrameTwo.store.RefillStore": [
+    "store.RefillStore"
+  ],
+  "WireFrameTwo.store.SBPstore": [
+    "store.SBPstore"
+  ],
+  "WireFrameTwo.store.SessionStore": [],
+  "WireFrameTwo.store.WeightStore": [
+    "store.WeightStore"
+  ],
+  "WireFrameTwo.view.Alarms.AddAlarmPage": [
+    "widget.addalarm"
+  ],
+  "WireFrameTwo.view.Alarms.AddReminder": [
+    "widget.addreminder"
+  ],
+  "WireFrameTwo.view.Alarms.AlarmsHome": [
+    "widget.alarmHome"
+  ],
+  "WireFrameTwo.view.Alarms.TimePickerField": [
+    "widget.timepickerfield"
+  ],
+  "WireFrameTwo.view.MenuBar": [
+    "widget.menu"
+  ],
+  "WireFrameTwo.view.ToolBar": [
+    "widget.toolbarmenu"
+  ],
+  "WireFrameTwo.view.login.LoginPage": [
+    "widget.loginPage"
+  ],
+  "WireFrameTwo.view.login.SignUpPage": [
+    "widget.SignupPage"
+  ],
+  "WireFrameTwo.view.myDoctor.DoctorProfile": [
+    "widget.doctorProfile"
+  ],
+  "WireFrameTwo.view.myProfile.MyProfile": [
+    "widget.myProfile"
+  ],
+  "WireFrameTwo.view.myProfile.MyProfileEdit": [
+    "widget.profileEdit"
+  ],
+  "WireFrameTwo.view.news.DietPlanner": [
+    "widget.dietPlanner"
+  ],
+  "WireFrameTwo.view.news.Faqs": [
+    "widget.faqs"
+  ],
+  "WireFrameTwo.view.news.FeedsPage": [
+    "widget.feedsHome"
+  ],
+  "WireFrameTwo.view.news.mediaGallery": [
+    "widget.mediaGallery"
+  ],
+  "WireFrameTwo.view.news.newsdetails": [
+    "widget.detailnews"
+  ],
+  "WireFrameTwo.view.news.newslist": [
+    "widget.newslist"
+  ],
+  "WireFrameTwo.view.notifications.notifications": [
+    "widget.notifications"
+  ],
+  "WireFrameTwo.view.reports.BloodPressureCharts": [
+    "widget.bp_report_chart"
+  ],
+  "WireFrameTwo.view.reports.FastingCharts": [
+    "widget.fasting_report_chart"
+  ],
+  "WireFrameTwo.view.reports.HBAcharts": [
+    "widget.hba_report_chart"
+  ],
+  "WireFrameTwo.view.reports.NewReportForm": [
+    "widget.newReport"
+  ],
+  "WireFrameTwo.view.reports.PPGCharts": [
+    "widget.ppg_report_chart"
+  ],
+  "WireFrameTwo.view.reports.PatientReport": [
+    "widget.report_chart"
+  ],
+  "WireFrameTwo.view.reports.RandomCharts": [
+    "widget.random_report_chart"
+  ],
+  "WireFrameTwo.view.reports.ReportsHome": [
+    "widget.myReports"
+  ],
+  "WireFrameTwo.view.reports.WeightCharts": [
+    "widget.weight_report_chart"
   ]
 });
 
