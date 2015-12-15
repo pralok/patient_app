@@ -6,7 +6,7 @@ Ext.define('WireFrameTwo.controller.Home',{
         'WireFrameTwo.view.reports.ReportsHome',
       'WireFrameTwo.view.notifications.notifications','WireFrameTwo.view.ToolBar',
       'WireFrameTwo.view.gallery.MediaGallery','WireFrameTwo.view.faq.Faqs',
-    'WireFrameTwo.view.dietPlanner.DietPlanner'],
+    'WireFrameTwo.view.dietPlanner.DietPlanner','WireFrameTwo.view.reports.AddNewReport'],
 
         stores : ['SessionStore','AlarmsStore',
             'HBAstore','FBGstore','DBPstore','PPGstore','RBSstore','SBPstore',
@@ -18,6 +18,7 @@ Ext.define('WireFrameTwo.controller.Home',{
             loginpage : 'loginPage',
             myProfile : 'myProfile',
             reportView : 'myReports',
+            addReport : 'addReport',
             alarmView : 'alarmHome',
             notsView : 'notifications',
             mediaGallery : 'mediaGallery',
@@ -37,6 +38,7 @@ Ext.define('WireFrameTwo.controller.Home',{
             onMyProfileClick : 'onMyProfileTap',
             onNotifClick : 'onNotsTap',
             onReportClick : 'onMyReportTap',
+            onAddReportClick : 'onAddReportTap',
             onDosageClick : 'onReminderTap',
             onGalleryClick : 'onGalleryTap',
             onFaqClick : 'onFaqTap',
@@ -192,6 +194,11 @@ Ext.define('WireFrameTwo.controller.Home',{
                 console.log("connection error");
             }
         })
+    },
+    onAddReportTap : function(){
+      Ext.create('WireFrameTwo.view.reports.AddNewReport');
+      var AddReportView = this.getAddReport();
+      this.changeView(AddReportView);
     },
 
     onMyReportTap : function(){

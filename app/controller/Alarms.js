@@ -9,6 +9,8 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 			alramView : 'alarmHome',
 			addReminderView : 'addreminder',
 
+			//selectfield
+			alarmFrequency : 'addreminder panel selectfield',
 			//buttons
 			ReminderType : 'addreminder radiofield[name=type]',
 			addReminderButton : 'alarmHome toolbarmenu button[action="add_alarm"]',
@@ -17,6 +19,9 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 			cancelReminder : 'addreminder toolbar button[action="cancel"]'
 		},
 		control : {
+			alarmFrequency :{
+				change : 'onFrequencySelect'
+			},
 			ReminderType : {
 				check : 'onSelectType'
 			},
@@ -33,6 +38,15 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 				tap : 'onCancelReminder'
 			}
 		}
+	},
+	onFrequencySelect : function(btn, newValue, oldValue, eOpts){
+		var timefield = Ext.ComponentQuery.query('#secondary_timefield')[0];
+		if(newValue == "twice"){
+			timefield.setHidden(false);
+		}else{
+			timefield.setHidden(true);
+		}
+		console.log(timefield);
 	},
 	onSelectType : function(button){
 		var me = this;
@@ -81,90 +95,96 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 	},
 	onSaveReminder : function(btn){
 		var me = this;
-		console.log('save');
 		var ReminderForm = me.getAddReminderView().getValues();
 		if(ReminderForm.type == "dosage"){
-			console.log(ReminderForm);
-			var alarm_time = ReminderForm.time;
+			myArr = [];
+			if(ReminderForm.frequency == 1){
+				myArr.push(ReminderForm.time[0]);
+			}else{
+				console.log(ReminderForm.frequency + " did not match");
+				myArr = ReminderForm.time;
+			}
 
-			if (alarm_time === '') {
-				return;
-			} else {
-				console.log(alarm_time);
-				var alarm_time1 = alarm_time.match(/(.*?):(.*?)\s(.*)$/);
-				var Myhour = alarm_time1[1];
-				var Mymin = alarm_time1[2];
-				var MyAmPm = alarm_time1[3];
-
-
-				if (ReminderForm.Daily === 1) {
-					ReminderForm.Sun = ReminderForm.Mon = ReminderForm.Tue = ReminderForm.Wed = ReminderForm.Thu = ReminderForm.Fri = ReminderForm.Sat = 'Yes'
-				}
-
-				if (MyAmPm == 'PM' && Number(Myhour) != 12) {
-					MyLocalHour = Number(Myhour) + 12;
+			for(var i in myArr){
+				var alarm_time = myArr[i];
+				if (alarm_time === '') {
+					return;
 				} else {
-					MyLocalHour = Number(Myhour);
-				}
+					console.log(alarm_time);
+					var alarm_time1 = alarm_time.match(/(.*?):(.*?)\s(.*)$/);
+					var Myhour = alarm_time1[1];
+					var Mymin = alarm_time1[2];
+					var MyAmPm = alarm_time1[3];
 
-				var TimeLeft = (MyLocalHour - new Date().getHours()) * 60 * 60 +
-				(Number(Mymin) - new Date().getMinutes()) * 60 -
-				(new Date().getSeconds());
 
-				if (TimeLeft < 0) {
-					TimeLeft = TimeLeft + (24 * 60 * 60);
-				}
+					if (ReminderForm.Daily === 1) {
+						ReminderForm.Sun = ReminderForm.Mon = ReminderForm.Tue = ReminderForm.Wed = ReminderForm.Thu = ReminderForm.Fri = ReminderForm.Sat = 'Yes'
+					}
 
-				console.log('Alarm goes on in : ' + TimeLeft + ' seconds');
+					if (MyAmPm == 'PM' && Number(Myhour) != 12) {
+						MyLocalHour = Number(Myhour) + 12;
+					} else {
+						MyLocalHour = Number(Myhour);
+					}
 
-				var myStore = Ext.getStore('AlarmsStore');
-				var UId;
+					var TimeLeft = (MyLocalHour - new Date().getHours()) * 60 * 60 +
+					(Number(Mymin) - new Date().getMinutes()) * 60 -
+					(new Date().getSeconds());
 
-				if(myStore.getCount() < 1){
-					UId = 1;
-				}else{
-					UId = Number(myStore.max('Aid')) + 1;
-				}
+					if (TimeLeft < 0) {
+						TimeLeft = TimeLeft + (24 * 60 * 60);
+					}
 
-				var NewAlarm = Ext.create('WireFrameTwo.model.AlarmModel',{
-					Aid : UId,
-					hour : Myhour ,
-					minute : Mymin ,
-					AmPm : MyAmPm,
-					Sun : ReminderForm.Sun,
-					Mon : ReminderForm.Mon,
-					Tue : ReminderForm.Tue,
-					Wed : ReminderForm.Wed,
-					Thu : ReminderForm.Thu,
-					Fri : ReminderForm.Fri,
-					Sat : ReminderForm.Sat,
-					title : ReminderForm.reminder_title
-				});
+					console.log('Alarm goes on in : ' + TimeLeft + ' seconds');
 
-				myStore.add(NewAlarm);
-				myStore.sync();
-				myStore.load();
+					var myStore = Ext.getStore('AlarmsStore');
+					var UId;
 
-				//setting up task
-				var task = Ext.create('Ext.util.DelayedTask', function(){
-					var alarm = Ext.ComponentQuery.query('#AlarmSound')[0];
-					alarm.play();
+					if(myStore.getCount() < 1){
+						UId = 1;
+					}else{
+						UId = Number(myStore.max('Aid')) + 1;
+					}
 
-					//load menu
-					Ext.Msg.show({
-						title: 'Alarm !!',
-						message: 'Time for reminder!',
-						width: 300,
-						buttons: [{text: 'Cancel', itemId: 'cancel', ui: 'action'}],
-						fn: function(buttonId) {
-							if(buttonId === 'cancel'){
-								alarm.stop();
-							}
-						}
+					var NewAlarm = Ext.create('WireFrameTwo.model.AlarmModel',{
+						Aid : UId,
+						hour : Myhour ,
+						minute : Mymin ,
+						AmPm : MyAmPm,
+						Sun : ReminderForm.Sun,
+						Mon : ReminderForm.Mon,
+						Tue : ReminderForm.Tue,
+						Wed : ReminderForm.Wed,
+						Thu : ReminderForm.Thu,
+						Fri : ReminderForm.Fri,
+						Sat : ReminderForm.Sat,
+						title : ReminderForm.reminder_title
 					});
-				});
-				task.delay(TimeLeft * 1000);
-				me.backToMain();
+
+					myStore.add(NewAlarm);
+					myStore.sync();
+					myStore.load();
+
+					//setting up task
+					var task = Ext.create('Ext.util.DelayedTask', function(){
+						var alarm = Ext.ComponentQuery.query('#AlarmSound')[0];
+						alarm.play();
+
+						//load menu
+						Ext.Msg.show({
+							title: 'Alarm !!',
+							message: 'Time for reminder!',
+							width: 300,
+							buttons: [{text: 'Cancel', itemId: 'cancel', ui: 'action'}],
+							fn: function(buttonId) {
+								if(buttonId === 'cancel'){
+									alarm.stop();
+								}
+							}
+						});
+					});
+					task.delay(TimeLeft * 1000);
+				}
 			}
 		}else if(ReminderForm.type == "refill"){
 
@@ -186,12 +206,11 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 				date : ReminderForm.refill_days_left
 			});
 
-
 			myStore.add(NewAlarm);
 			myStore.sync();
 			myStore.load();
-			me.backToMain();
 		}
+		me.backToMain();
 	},
 	onCancelReminder : function(btn){
 		console.log('cancel');

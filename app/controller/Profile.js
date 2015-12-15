@@ -145,7 +145,7 @@ Ext.define('WireFrameTwo.controller.Profile',{
             params: {
                 reference_id : myRefId,
                 timestamp : new Date().getTime(),
-                data : UpdateData
+                data : Ext.util.JSON.encode(UpdateData)
             },
             success: function (response) {
                 var result = Ext.JSON.decode(response.responseText);

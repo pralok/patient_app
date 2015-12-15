@@ -45,16 +45,5 @@ Ext.define('WireFrameTwo.view.reports.ReportsHome',{
                 store : 'RandomStore'//mandatory
             }
         ]
-    },
-    initialize : function(){
-        var toolbar = this.down('toolbarmenu');
-        toolbar.add({
-            xtype : 'spacer'
-        });
-        toolbar.add({
-            xtype : 'button',
-            iconCls : 'add',
-            action : 'add_report'
-        });
     }
 });

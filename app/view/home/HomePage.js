@@ -74,7 +74,7 @@ Ext.define('WireFrameTwo.view.home.HomePage', {
                 element: 'element',
                 event: 'tap',
                 fn: function() {
-                  this.fireEvent('onRecordClick', this);
+                  this.fireEvent('onAddReportClick', this);
                 }
               }
             ]
