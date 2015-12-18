@@ -1,0 +1,20 @@
+{
+  "faqs" : [
+    {
+      "question" : "What should my blood sugar be when I wake up (fasting) and before meals? What about after?",
+      "answer" : "For most people with diabetes, the American Diabetes Association recommends a fasting or before-meals blood glucose (or blood sugar) goal of 70–130 mg/dl. One to two hours after eating, a postprandial blood sugar reading at or under 180 mg/dl is recommended."
+    },
+    {
+      "question" : "Can I get rid of type 2 diabetes if I stop eating carbs and/or lose a lot of weight?",
+      "answer" : "No, but you can control it. If you have prediabetes or were just diagnosed with type 2, losing a lot of weight can put the condition into remission. Weight regain, aging, and the natural progression of type 2 diabetes can bring it back. “Not eating carbohydrate or severely restricting it is nearly impossible for any length of time. It’s also not healthy, because you won’t get essential nutrients, says JoJo Dantone, RD, CDE, a diabetes program coordinator in New Orleans."
+    },
+    {
+      "question" : "Why is it OK to eat fruit when it’s full of carbohydrate? Are some fruits better to eat than others?",
+      "answer" : "The calories in all fruits (fresh, frozen, dried, and canned without added sugar) are mainly carbohydrate with a bit of protein. People with diabetes need to eat a certain amount of carbs every day for energy and essential nutrients. Healthy sources of carbs include fruits, as well as vegetables, whole grains, legumes (beans), and low-fat dairy foods."
+    },
+    {
+      "question" : "Why is weight loss so important? What’s the best way for a person with type 2 to lose weight?",
+      "answer" : "Weight loss is vital, particularly just after a diagnosis of type 2 or prediabetes. Weight loss increases insulin sensitivity, allowing cells to more effectively use the insulin the body continues to make. Losing just 10–20 pounds can accomplish a boatload of benefits. Among them are improved blood sugar, blood pressure, and cholesterol levels and possibly taking fewer medications or lower doses. To lose weight slowly and steadily, change your lifestyle. The pounds you keep off over time are the most important to living a long life."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 Ext.define('WireFrameTwo.store.BPStore',{
     extend : 'Ext.data.Store',
-    requires : ['WireFrameTwo.model.BPModel'],
+    requires : ['WireFrameTwo.model.BPModel','Ext.data.proxy.Rest'],
     alias : 'store.BPStore',
     config : {
         storeId : 'BPStore',

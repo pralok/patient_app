@@ -772,7 +772,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "WireFrameTwo.model.BPModel": [],
   "WireFrameTwo.model.CommonModel": [],
   "WireFrameTwo.model.FaqsModel": [],
-  "WireFrameTwo.model.NewsModel": [],
   "WireFrameTwo.model.NotificationModel": [],
   "WireFrameTwo.model.RefillModel": [],
   "WireFrameTwo.model.ReportModel": [],
@@ -784,7 +783,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "WireFrameTwo.store.FaqStore": [],
   "WireFrameTwo.store.FastingStore": [],
   "WireFrameTwo.store.HBAstore": [],
-  "WireFrameTwo.store.NewsStore": [],
   "WireFrameTwo.store.NotificationStore": [],
   "WireFrameTwo.store.PPGstore": [],
   "WireFrameTwo.store.RBSstore": [],
@@ -793,28 +791,23 @@ Ext.ClassManager.addNameAlternateMappings({
   "WireFrameTwo.store.SBPstore": [],
   "WireFrameTwo.store.SessionStore": [],
   "WireFrameTwo.store.WeightStore": [],
-  "WireFrameTwo.view.Alarms.AddAlarmPage": [],
   "WireFrameTwo.view.Alarms.AddReminder": [],
   "WireFrameTwo.view.Alarms.AlarmsHome": [],
   "WireFrameTwo.view.Alarms.TimePickerField": [],
   "WireFrameTwo.view.ToolBar": [],
+  "WireFrameTwo.view.dietPlanner.DietPlanner": [],
+  "WireFrameTwo.view.faq.Faqs": [],
+  "WireFrameTwo.view.gallery.MediaGallery": [],
   "WireFrameTwo.view.home.HomePage": [],
   "WireFrameTwo.view.login.LoginPage": [],
   "WireFrameTwo.view.login.SignUpPage": [],
-  "WireFrameTwo.view.myDoctor.DoctorProfile": [],
   "WireFrameTwo.view.myProfile.MyProfile": [],
   "WireFrameTwo.view.myProfile.MyProfileEdit": [],
-  "WireFrameTwo.view.news.DietPlanner": [],
-  "WireFrameTwo.view.news.Faqs": [],
-  "WireFrameTwo.view.news.FeedsPage": [],
-  "WireFrameTwo.view.news.mediaGallery": [],
-  "WireFrameTwo.view.news.newsdetails": [],
-  "WireFrameTwo.view.news.newslist": [],
   "WireFrameTwo.view.notifications.notifications": [],
+  "WireFrameTwo.view.reports.AddNewReport": [],
   "WireFrameTwo.view.reports.BloodPressureCharts": [],
   "WireFrameTwo.view.reports.FastingCharts": [],
   "WireFrameTwo.view.reports.HBAcharts": [],
-  "WireFrameTwo.view.reports.NewReportForm": [],
   "WireFrameTwo.view.reports.PPGCharts": [],
   "WireFrameTwo.view.reports.PatientReport": [],
   "WireFrameTwo.view.reports.RandomCharts": [],
@@ -1774,7 +1767,6 @@ Ext.ClassManager.addNameAliasMappings({
   "WireFrameTwo.model.BPModel": [],
   "WireFrameTwo.model.CommonModel": [],
   "WireFrameTwo.model.FaqsModel": [],
-  "WireFrameTwo.model.NewsModel": [],
   "WireFrameTwo.model.NotificationModel": [],
   "WireFrameTwo.model.RefillModel": [],
   "WireFrameTwo.model.ReportModel": [],
@@ -1800,9 +1792,6 @@ Ext.ClassManager.addNameAliasMappings({
   "WireFrameTwo.store.HBAstore": [
     "store.HBAstore"
   ],
-  "WireFrameTwo.store.NewsStore": [
-    "store.newsStore"
-  ],
   "WireFrameTwo.store.NotificationStore": [
     "store.notificationStore"
   ],
@@ -1825,9 +1814,6 @@ Ext.ClassManager.addNameAliasMappings({
   "WireFrameTwo.store.WeightStore": [
     "store.WeightStore"
   ],
-  "WireFrameTwo.view.Alarms.AddAlarmPage": [
-    "widget.addalarm"
-  ],
   "WireFrameTwo.view.Alarms.AddReminder": [
     "widget.addreminder"
   ],
@@ -1840,6 +1826,15 @@ Ext.ClassManager.addNameAliasMappings({
   "WireFrameTwo.view.ToolBar": [
     "widget.toolbarmenu"
   ],
+  "WireFrameTwo.view.dietPlanner.DietPlanner": [
+    "widget.dietPlanner"
+  ],
+  "WireFrameTwo.view.faq.Faqs": [
+    "widget.faqs"
+  ],
+  "WireFrameTwo.view.gallery.MediaGallery": [
+    "widget.mediaGallery"
+  ],
   "WireFrameTwo.view.home.HomePage": [
     "widget.homePage"
   ],
@@ -1849,35 +1844,17 @@ Ext.ClassManager.addNameAliasMappings({
   "WireFrameTwo.view.login.SignUpPage": [
     "widget.SignupPage"
   ],
-  "WireFrameTwo.view.myDoctor.DoctorProfile": [
-    "widget.doctorProfile"
-  ],
   "WireFrameTwo.view.myProfile.MyProfile": [
     "widget.myProfile"
   ],
   "WireFrameTwo.view.myProfile.MyProfileEdit": [
     "widget.profileEdit"
   ],
-  "WireFrameTwo.view.news.DietPlanner": [
-    "widget.dietPlanner"
-  ],
-  "WireFrameTwo.view.news.Faqs": [
-    "widget.faqs"
-  ],
-  "WireFrameTwo.view.news.FeedsPage": [
-    "widget.feedsHome"
-  ],
-  "WireFrameTwo.view.news.mediaGallery": [
-    "widget.mediaGallery"
-  ],
-  "WireFrameTwo.view.news.newsdetails": [
-    "widget.detailnews"
-  ],
-  "WireFrameTwo.view.news.newslist": [
-    "widget.newslist"
-  ],
   "WireFrameTwo.view.notifications.notifications": [
     "widget.notifications"
+  ],
+  "WireFrameTwo.view.reports.AddNewReport": [
+    "widget.addReport"
   ],
   "WireFrameTwo.view.reports.BloodPressureCharts": [
     "widget.bp_report_chart"
@@ -1887,9 +1864,6 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "WireFrameTwo.view.reports.HBAcharts": [
     "widget.hba_report_chart"
-  ],
-  "WireFrameTwo.view.reports.NewReportForm": [
-    "widget.newReport"
   ],
   "WireFrameTwo.view.reports.PPGCharts": [
     "widget.ppg_report_chart"

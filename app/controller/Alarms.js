@@ -41,7 +41,7 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 	},
 	onFrequencySelect : function(btn, newValue, oldValue, eOpts){
 		var timefield = Ext.ComponentQuery.query('#secondary_timefield')[0];
-		if(newValue == "twice"){
+		if(newValue === 2){
 			timefield.setHidden(false);
 		}else{
 			timefield.setHidden(true);
@@ -107,6 +107,7 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 
 			for(var i in myArr){
 				var alarm_time = myArr[i];
+				console.log(alarm_time);
 				if (alarm_time === '') {
 					return;
 				} else {

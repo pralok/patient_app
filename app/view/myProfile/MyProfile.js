@@ -10,7 +10,7 @@ Ext.define('WireFrameTwo.view.myProfile.MyProfile',{
                 xtype : 'toolbarmenu'
             },{
                 xtype : 'img',
-                src : 'user.jpeg',
+                src : 'resources/data/user.jpeg',
                 height : 100,
                 width : 100,
                 style : 'float:left; margin-bottom:10px;'

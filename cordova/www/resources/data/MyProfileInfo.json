@@ -1,0 +1,19 @@
+{
+    "success": "true",
+    "data": {
+        "id": 456,
+        "fname": "John",
+        "lname": "Doe",
+        "email": "patient@example.com",
+        "dob": "20/01/1980",
+        "age": 35,
+        "gender": "male",
+        "diabetes_type": "Type1",
+        "Allergy": "water, air",
+        "medical_history": "lorem ipsum,lorem ipsum",
+        "address": "lorem ipsum, loremipsum",
+        "contact": "8888888888",
+        "contact_emergency": "9999999999"
+    },
+    "message": ""
+}

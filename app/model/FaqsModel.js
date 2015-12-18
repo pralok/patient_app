@@ -3,7 +3,7 @@ Ext.define('WireFrameTwo.model.FaqsModel',{
     config : {
         fields : ['question', 'answer'],
         proxy : {
-            url : 'faqs.json',
+            url : 'resources/data/faqs.json',
             type : 'rest',
             method : 'POST',
             reader : {

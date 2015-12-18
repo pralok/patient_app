@@ -68,6 +68,10 @@ Ext.define('WireFrameTwo.controller.Home',{
       var me = this;
       var task = me.loadMask(me);
 
+      //pass params here
+      var refId = Ext.getController('RefId').passRefId;
+      console.log(refId);
+
       //fetch view data
       Ext.create('WireFrameTwo.view.notifications.notifications');
       var NotsView = me.getNotsView();

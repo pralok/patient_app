@@ -11,7 +11,7 @@ Ext.define('WireFrameTwo.view.Alarms.AlarmsHome', {
         {
             xtype : 'audio',
             id : 'AlarmSound',
-            url : 'alarm.mp3',
+            url : 'resources/data/alarm.mp3',
             autoResume : false,
             loop : true,
             volume : 0.3,

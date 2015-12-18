@@ -3,7 +3,7 @@ Ext.define('WireFrameTwo.model.ReportModel',{
     config : {
         fields : ['date','type','value','value_alt'],
         proxy : {
-            url : 'ChartData.json',
+            url : 'resources/data/ChartData.json',
             type : 'ajax',
             reader : {
                 type : 'json',

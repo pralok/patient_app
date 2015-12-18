@@ -1,6 +1,6 @@
 Ext.define('WireFrameTwo.store.RBSstore',{
     extend : 'Ext.data.Store',
-    requires : ['WireFrameTwo.model.ReportModel'],
+    requires : ['WireFrameTwo.model.ReportModel','Ext.data.proxy.Rest'],
     alias : 'store.RBSstore',
     config : {
         storeId : 'RBSstore',

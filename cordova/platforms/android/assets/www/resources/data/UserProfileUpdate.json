@@ -1,0 +1,14 @@
+{
+  "success" : true,
+  "fname" : "pralok",
+  "lname" : "chhajed",
+  "age" : "4",
+  "dob" : "2011-01-11",
+  "gender" : "Male",
+  "diabetes_type" : "type 2",
+  "allergy" : "hazelnuts",
+  "medical_history" : "some",
+  "Address" : "123 cms, main road, krh, ind",
+  "mobile_contact" : "112321122",
+  "emergency_contact" : "3454321231"
+}

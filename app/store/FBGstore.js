@@ -1,6 +1,6 @@
 Ext.define('WireFrameTwo.store.FBGstore',{
     extend : 'Ext.data.Store',
-    requires : ['WireFrameTwo.model.ReportModel'],
+    requires : ['WireFrameTwo.model.ReportModel','Ext.data.proxy.Rest'],
     alias : 'store.FBGstore',
     config : {
         storeId : 'FBGstore',

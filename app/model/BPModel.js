@@ -4,7 +4,7 @@ Ext.define('WireFrameTwo.model.BPModel',{
         fields : ['date','systolic_reading',
         'systolic_target','dystolic_reading','dystolic_target'],
         proxy : {
-            url : 'BloodPressureData.json',
+            url : 'resources/data/BloodPressureData.json',
             type : 'ajax',
             reader : {
                 type : 'json',

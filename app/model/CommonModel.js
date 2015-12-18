@@ -3,7 +3,7 @@ Ext.define('WireFrameTwo.model.CommonModel',{
     config : {
         fields : ['date','value','target_value','type'],
         proxy : {
-            url : 'CommonChartData.json',//'WeightData.json',
+            url : 'resources/data/CommonChartData.json',//'WeightData.json',
             type : 'ajax',
             reader : {
                 type : 'json',
