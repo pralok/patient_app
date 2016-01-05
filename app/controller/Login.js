@@ -156,7 +156,9 @@ Ext.define('WireFrameTwo.controller.Login',{
       var password = LoginValues.password;
 
       //validate form
-
+      if(username.length < 1 || password.length < 1){
+        return;
+      }else{
       //load mask
       var task = me.loadMask("Checking Credentials..");
 
@@ -211,6 +213,8 @@ Ext.define('WireFrameTwo.controller.Login',{
           Ext.toast('Sorry !! connection error. Please try again later');
         }
       })
+
+      }
     },
 
     createUserSession : function(refID){
