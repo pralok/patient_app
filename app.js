@@ -7,13 +7,12 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
-/*        // Load the Menu
-        var menu = Ext.create('WireFrameTwo.view.MenuBar');
-        Ext.Viewport.setMenu(menu, {
-            side: 'left',
-            reveal: true
-        });
-*/
+        /*
+        //infinite loop request
+        setInterval(function() {
+          console.log("run request");
+        }, 1000);
+        */
         var SessionStore = Ext.getStore('SessionStore');
         console.log(SessionStore.getAt(0));
         if(SessionStore.getAt(0)){

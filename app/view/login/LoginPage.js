@@ -15,30 +15,53 @@ Ext.define('WireFrameTwo.view.login.LoginPage',{
                         xtype : 'textfield',
   //                      label : 'username',
                         name : 'username',
+                        styleHtmlCls : true,
+                      //  html : '<br />',
+                        styleHtml: true,
+                        cls : 'username',
                         placeHolder : 'username'
                     },{
                         xtype : 'passwordfield',
 //                        label : 'password',
                         name : 'password',
+                        styleHtmlCls : true,
+                        styleHtml:true,
+                        cls : 'password',
                         placeHolder : 'password'
                     }]
+            },
+            {
+            layout: {
+          		type: 'hbox',
+          	},
+          	items: [{
+            	xtype: 'spacer',
+              width : 10
             },{
                 xtype : 'button',
                 ui : 'action',
+                styleHtml:true,
+                styleHtmlCls : true,
+                cls : 'button_m',
+                flex : 1,
                 text : 'LogIn',
                 action : 'Login'
-            },
-            {
-                xtype : 'panel',
-                html : 'New User ? Sign Up by clicking below',
-                styleHtml : true,
-                style : 'text-align : center; color : blue; font-size : 0.7em; padding-top : 45px;',
+            },{
+            	xtype: 'spacer',
+              width : 10
             },
             {
                 xtype : 'button',
                 ui : 'action',
+                styleHtmlCls : true,
+                flex : 1,
+                cls : 'button_m',
                 text : 'Sign Up',
                 action : 'SignUp'
+            },{
+            	xtype: 'spacer',
+              width : 10
+            }]
             },
             {
                 xtype : 'panel',

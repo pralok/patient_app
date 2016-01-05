@@ -778,6 +778,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "WireFrameTwo.model.UserSession": [],
   "WireFrameTwo.store.AlarmsStore": [],
   "WireFrameTwo.store.BPStore": [],
+  "WireFrameTwo.store.CommonChartStore": [],
   "WireFrameTwo.store.DBPstore": [],
   "WireFrameTwo.store.FBGstore": [],
   "WireFrameTwo.store.FaqStore": [],
@@ -1776,6 +1777,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "WireFrameTwo.store.BPStore": [
     "store.BPStore"
+  ],
+  "WireFrameTwo.store.CommonChartStore": [
+    "store.CommonChartStore"
   ],
   "WireFrameTwo.store.DBPstore": [
     "store.DBPstore"

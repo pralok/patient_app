@@ -93,6 +93,15 @@ Ext.define('WireFrameTwo.view.login.SignUpPage',{
           }]
         },
         {
+            xtype : 'panel',
+            itemId : 'signupError',
+            html : 'unable to Register !!',
+            hidden : true,//false,
+            styleHtml : true,
+            style : 'text-align : center; color : red; font-size : 0.7em; padding-top : 15px;padding-bottom : 15px;',
+            showAnimation : 'fade'
+        },
+        {
           xtype : 'button',
           ui : 'action',
           text : 'Sign Up',

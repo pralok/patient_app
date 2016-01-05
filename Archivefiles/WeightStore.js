@@ -9,3 +9,5 @@ Ext.define('WireFrameTwo.store.WeightStore',{
         autoLoad : true
     }
 })
+
+//      <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="MainActivity" android:theme="@android:style/Theme.Black.NoTitleBar" android:windowSoftInputMode="adjustResize">

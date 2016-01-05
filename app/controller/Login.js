@@ -10,6 +10,7 @@ Ext.define('WireFrameTwo.controller.Login',{
             loginButton : 'loginPage button[action="Login"]',
             signUpButton : 'loginPage button[action="SignUp"]',
             errorMsg : 'loginPage #loginError',
+            signupErrorMsg : 'SignupPage #signupError',
             homePage : 'homePage',
             signupPage : 'SignupPage',
             registerButton : 'SignupPage button[action="Register"]',
@@ -46,20 +47,35 @@ Ext.define('WireFrameTwo.controller.Login',{
       var RegForm = me.getSignupPage().getValues();
       console.log(RegForm);
 
+
       //validate form
       if(me.IsRegFormValid(RegForm)){
+        //load mask
+        var task = me.loadMask("Registering user..");
+
         RegForm.timestamp = new Date().getTime();
+
         //submit form
         Ext.Ajax.request({
-          url: 'UserLogin.json',//abc-abc
+          url: 'http://squer.mirealux.com/wdm-pm-api/register',//
+          timeout : 15000,
           method: 'post',
           params: RegForm,
           success: function (response) {
+            //hide load mask
+            task.cancel();
+            Ext.Viewport.unmask();
+
             var result = Ext.JSON.decode(response.responseText);
 
             if (result.success === true) {
               //reset fields
               me.getSignupPage().reset();
+
+              //hide error msg if visible
+              if(! me.getSignupErrorMsg().isHidden()){
+                me.getSignupErrorMsg().hide();
+              };
 
               // add a session local storage by passing ref id
               var refID = result.reference_id;
@@ -69,16 +85,22 @@ Ext.define('WireFrameTwo.controller.Login',{
               // change view
               me.ChangeView();
             } else {
+
               console.log(result);
               // show failure msg
-              me.getErrorMsg().show();
-              console.log("login failed");
+              me.getSignupErrorMsg().show();
+              Ext.toast(result.message);
+              console.log("signup failed");
             }
           },
           failure: function () {
+            //hide load mask
+            task.cancel();
+            Ext.Viewport.unmask();
+
             // show connection error loginError
             console.log("connection error");
-            Ext.toast('Please connect to Internet and try again !');
+            Ext.toast('Sorry !! connection error. Please try again later');
           }
         })
       }
@@ -101,12 +123,12 @@ Ext.define('WireFrameTwo.controller.Login',{
         return false;
       }
       //password field and confirm pwd match
-    if(form.password !== form.pwd){
-      console.log("passwords do not match");
-      Ext.toast("Passwords do not match");
-      return false;
-    }
-    return true;
+      if(form.password !== form.pwd){
+        console.log("passwords do not match");
+        Ext.toast("Passwords do not match");
+        return false;
+      }
+      return true;
     },
 
     SignUp : function(){
@@ -135,16 +157,14 @@ Ext.define('WireFrameTwo.controller.Login',{
 
       //validate form
 
-      var task = Ext.create('Ext.util.DelayedTask', function() {
-          Ext.Viewport.mask({ xtype: 'loadmask',
-                             message: "Checking Credentials.." });
-      }, this);
-
-      task.delay(500);
-
+      //load mask
+      var task = me.loadMask("Checking Credentials..");
 
       Ext.Ajax.request({
-        url: 'http://squer.mirealux.com/wdm-pm-api/login',//abc-abc
+        url: 'http://squer.mirealux.com/wdm-pm-api/login',
+        //'UserLogin.json',
+        //'http://squer.mirealux.com/wdm-pm-api/login',
+        timeout : 10000,
         method: 'post',
         params: {
           username: username,
@@ -152,7 +172,7 @@ Ext.define('WireFrameTwo.controller.Login',{
           timestamp : new Date().getTime()
         },
         success: function (response) {
-          //
+          //hide mask
           task.cancel();
           Ext.Viewport.unmask();
 
@@ -182,13 +202,13 @@ Ext.define('WireFrameTwo.controller.Login',{
           }
         },
         failure: function () {
-          //
+          //hide mask
           task.cancel();
           Ext.Viewport.unmask();
 
           // show connection error loginError
-          console.log("connection error");
-          Ext.toast('Please connect to Internet and try again !');
+          console.log("Sorry !! connection error. Please try again later");
+          Ext.toast('Sorry !! connection error. Please try again later');
         }
       })
     },
@@ -218,5 +238,15 @@ Ext.define('WireFrameTwo.controller.Login',{
             type : 'slide',
             direction : 'left'
         });
+    },
+
+    loadMask : function(msg){
+      var task = Ext.create('Ext.util.DelayedTask', function() {
+          Ext.Viewport.mask({ xtype: 'loadmask',
+                             message: msg });
+      }, this);
+
+      task.delay(500);
+      return task;
     }
 })

@@ -1,12 +1,14 @@
 {
-    "success": "true",
+    "success": true,
     "data": {
         "id": 456,
         "fname": "John",
         "lname": "Doe",
         "email": "patient@example.com",
-        "dob": "20/01/1980",
-        "age": 35,
+        "dob": "1980-05-01",
+        "age": {
+          "year" : 35
+          },
         "gender": "male",
         "diabetes_type": "Type1",
         "Allergy": "water, air",

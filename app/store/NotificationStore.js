@@ -5,7 +5,8 @@ Ext.define('WireFrameTwo.store.NotificationStore',{
     config : {
         storeId : 'notificationStore',
         model : 'WireFrameTwo.model.NotificationModel',
-        autoLoad : true,
+        autoLoad : true
+        /*
         proxy : {
             url : 'resources/data/notifications.json',
             type : 'rest',
@@ -15,5 +16,9 @@ Ext.define('WireFrameTwo.store.NotificationStore',{
                 rootProperty : 'notifications'
             }
         }
+        */
+    },
+    initialize : function(){
+      console.log('====creating store=====');
     }
 })

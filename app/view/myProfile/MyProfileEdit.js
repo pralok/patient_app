@@ -21,14 +21,16 @@ Ext.define('WireFrameTwo.view.myProfile.MyProfileEdit',{
                 ui: 'decline',
                 action: 'hide'
             }]
-        },{
+        },
+        /*{
             itemId: 'loadedImage',
             xtype: 'img',
-            src: 'user.jpeg',
+            src: './resources/data/user.jpeg',
             width: '200px',
             height: '200px',
             style: 'margin: auto;margin-top:15px;'
-        }, {
+        },
+        {
             itemId: 'fileLoadBtn',
             xtype: 'fileupload',
             autoUpload: true,
@@ -47,27 +49,31 @@ Ext.define('WireFrameTwo.view.myProfile.MyProfileEdit',{
                     loading: true
                 }
             }
-        },{
+        },
+        */{
             xtype : 'fieldset',
             label : 'Update Profile',
             name : 'updated_profile',
             items : [{
                 xtype: 'textfield',
                 label: 'First Name',
+                labelWrap : true,
                 name: 'fName'
             },{
                 xtype: 'textfield',
                 label: 'Last Name',
+                labelWrap : true,
                 name: 'lname'
             },{
-                xtype : 'textfield',
-                label : 'Date of Birth',
-                name : 'dob',
-                component: {type: 'date',value : {year: 1989, day: 1, month: 5} }
-
-            }, {
+              xtype : 'datepickerfield',
+              labelWrap : true,
+              label : 'Date of Birth',
+              value : new Date(),
+              name : 'dob'
+            },{
                 xtype: 'selectfield',
                 label: 'Gender',
+                labelWrap : true,
                 name: 'gender',
                 options: [
                     {text: 'Male',  value: 'male'},
@@ -75,7 +81,8 @@ Ext.define('WireFrameTwo.view.myProfile.MyProfileEdit',{
                 ]
             },{
                 xtype: 'selectfield',
-                label: 'Diabetes <br/>Type',
+                label: 'Diabetes Type',
+                labelWrap : true,
                 name: 'diab_type',
                 options: [
                     {text: 'Type 1',  value: 'type1'},
@@ -84,22 +91,27 @@ Ext.define('WireFrameTwo.view.myProfile.MyProfileEdit',{
             },{
                 xtype: 'textareafield',
                 label: 'Address',
-                name: 'address'
-            }, {
+                labelWrap : true,
+              name: 'address'
+            },{
                 xtype: 'numberfield',
                 label: 'Mobile No.',
+                labelWrap : true,
                 name: 'contact'
             },{
                 xtype: 'numberfield',
-                label: 'Emergency<br/> Contact',
+                label: 'Emergency Contact',
+                labelWrap : true,
                 name: 'emg_contact'
             },{
                 xtype : 'textareafield',
                 label : 'Allergy',
+                labelWrap : true,
                 name : 'allergy'
             },{
                 xtype : 'textareafield',
                 label : 'Medical<br/> History',
+                labelWrap : true,
                 name : 'history'
             }
             ]

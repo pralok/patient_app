@@ -1,23 +1,30 @@
 Ext.define('WireFrameTwo.view.myProfile.MyProfile',{
     extend : 'Ext.Panel',
-    requires : ['WireFrameTwo.view.ToolBar','Ext.field.Text','Ext.form.FieldSet','Ext.Img'],
+    requires : ['WireFrameTwo.view.ToolBar',
+    'Ext.field.Text','Ext.form.FieldSet','Ext.Img'],
     xtype : 'myProfile',
+    style : 'background-color:#ffffff;',
     config : {
         scrollable : true,
         fullscreen : true,
         items : [
             {
                 xtype : 'toolbarmenu'
-            },{
+            },/*{
                 xtype : 'img',
                 src : 'resources/data/user.jpeg',
                 height : 100,
                 width : 100,
                 style : 'float:left; margin-bottom:10px;'
-            },{
+            },*/{
                 xtype : 'panel',
-                html : 'profile content'
+                html : ''
             },{
+              xtype : 'panel',
+              hidden : true,
+              html : '',
+              itemId : 'hiddenData'
+            }/*,{
                 xtype : 'fieldset',
                 items : [
                     {
@@ -52,7 +59,7 @@ Ext.define('WireFrameTwo.view.myProfile.MyProfile',{
                         readOnly : true
                     }
                 ]
-            }
+            }*/
         ]
     },
     initialize : function(){

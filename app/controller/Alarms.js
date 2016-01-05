@@ -1,5 +1,6 @@
 Ext.define('WireFrameTwo.controller.Alarms',{
 	extend : 'Ext.app.Controller',
+	requires : ['Ext.MessageBox'],
 	config : {
 		views : ['WireFrameTwo.view.Alarms.AlarmsHome',
 		'Ext.util.DelayedTask',
@@ -7,6 +8,7 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 		refs : {
 			//views
 			alramView : 'alarmHome',
+			reminderList : 'alarmHome tabpanel list',
 			addReminderView : 'addreminder',
 
 			//selectfield
@@ -36,8 +38,44 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 			},
 			cancelReminder : {
 				tap : 'onCancelReminder'
+			},
+			reminderList : {
+				itemtap : 'onReminderDelete'
 			}
 		}
+	},
+	onReminderDelete : function(btn, index, target, record, e, eOpts){
+
+		//TODO : cancel delayed task (update : done by mithila)
+		var me = this;
+		//show a popup
+		Ext.Msg.show({
+			title: 'Delete Reminder ?',
+			width: 300,
+			buttons: [
+				{
+					text: 'Delete',
+					itemId: 'delete',
+					ui: 'decline'
+				},{
+					text: 'Cancel',
+					itemId: 'cancel',
+					ui: 'action'
+				}
+		],
+			fn: function(buttonId) {
+				if(buttonId === 'cancel'){
+					return;
+				}else if(buttonId === 'delete'){
+					console.log("will delete this record");
+							//call store
+							console.log(target);
+							var myStore = target.up('list').getStore();
+							myStore.remove(record);
+							myStore.sync();
+				}
+			}
+		});
 	},
 	onFrequencySelect : function(btn, newValue, oldValue, eOpts){
 		var timefield = Ext.ComponentQuery.query('#secondary_timefield')[0];
@@ -65,7 +103,6 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 				showitem.show();
 			}
 		}
-
 		var hideItems = Ext.ComponentQuery.query('addreminder panel[cls='+ hidetype +']');
 		for(var i=0; i < hideItems.length ; i++){
 			var hideitem = hideItems[i];
@@ -74,7 +111,6 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 			}
 		}
 	},
-
 	onNewReminder : function(){
 		console.log("tapped a button");
 		var AddAlarmPage = Ext.create('WireFrameTwo.view.Alarms.AddReminder');
@@ -173,8 +209,8 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 
 						//load menu
 						Ext.Msg.show({
-							title: 'Alarm !!',
-							message: 'Time for reminder!',
+							title: 'Reminder !!',
+							message: ReminderForm.reminder_title,
 							width: 300,
 							buttons: [{text: 'Cancel', itemId: 'cancel', ui: 'action'}],
 							fn: function(buttonId) {
@@ -199,12 +235,21 @@ Ext.define('WireFrameTwo.controller.Alarms',{
 			};
 
 			//add reminder date
+			var someDate = new Date();
+			var numberOfDaysToAdd = ReminderForm.refill_days_left;
+			someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+
+			var dd = someDate.getDate();
+			var mm = someDate.getMonth() + 1;
+			var y = someDate.getFullYear();
+			var someFormattedDate = dd + '/'+ mm + '/'+ y;
+
 			//set a delayed task for it
 
 			var NewAlarm = Ext.create('WireFrameTwo.model.RefillModel',{
 				Aid : UId,
 				title : ReminderForm.refill_title,
-				date : ReminderForm.refill_days_left
+				date : someFormattedDate
 			});
 
 			myStore.add(NewAlarm);
